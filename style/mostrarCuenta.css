@@ -1,0 +1,72 @@
+@font-face {
+    font-family: Exo Thin;
+    src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+* {
+    user-select: none;
+    box-sizing: border-box; /* Asegura un modelado de caja más predecible */
+    font-family: "Exo Thin", sans-serif;
+    letter-spacing: 1.2px;
+}
+
+body.bodyMostrarCuenta {
+    background-color: #f7f9fc; /* Color de fondo suave y limpio */
+    margin: 0; /* Asegura que no haya margen en el body */
+    padding: 0; /* Elimina el padding por defecto del body */
+}
+
+/* Contenedor principal */
+.cuenta-seccion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo para el contenedor */
+    margin: auto; /* Centra el contenedor */
+}
+
+/* Elemento individual */
+.cuenta-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px #0000000d; /* Sombra más suave */
+    margin: 10px; /* Mantiene margen entre los elementos */
+    padding: 10px; /* Reducción del espacio interno */
+    flex: 1 1 calc(25% - 20px); /* Cuatro elementos por fila */
+    transition: box-shadow 0.3s; /* Sin transformación de escalado */
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.cuenta-item:hover {
+    box-shadow: 0 8px 15px #0000001a; /* Sombra más pronunciada al pasar el mouse */
+}
+
+/* Títulos */
+.cuenta-titulo {
+    font-size: 1.2em; /* Tamaño del título */
+    margin-bottom: 10px; /* Margen inferior */
+    color: #333; /* Color oscuro para el título */
+    text-align: center; /* Centrando el texto */
+    border-bottom: 2px solid #6e89d3b3; /* Línea decorativa */
+    padding-bottom: 5px; /* Padding inferior */
+}
+
+/* Información dentro del elemento */
+.cuenta-info {
+    font-size: 0.9em; /* Tamaño de la fuente de la información */
+    margin: 5px 0; /* Ajuste del margen */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .cuenta-item {
+        flex: 1 1 calc(40% - 20px); /* Tres elementos por fila en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .cuenta-item {
+        flex: 1 1 90%; /* Un elemento por fila en pantallas móviles */
+    }
+}

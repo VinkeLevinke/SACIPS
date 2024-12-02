@@ -1,0 +1,393 @@
+/*Estos son los estilos de los Afiliados.*/
+
+@font-face { /*AQUÍ DESCARGUE E IMPORTE UNA FUENTE */
+    font-family: Exo;
+    src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+*{  /*// Aqui instale la fuente en toda la pagina en general con el * //*/
+    font-family: "Exo", sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: #504f4f;
+    background: rgb(255, 255, 255);
+    border: solid;
+}
+
+.inicio-afiliados{
+    width: 500px;
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(235, 90, 90);
+    border-radius: 10px;
+    position: relative;
+    top: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.247); 
+}
+
+.debe{
+    color: rgba(252, 252, 252, 0.733);
+    font-size: 25px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 0px 20px;
+}
+.debe div{
+    border: none;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.debe > a{
+    left: 500px;
+    height: 60px;
+    top: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.63); 
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    background-color:#7d60ff15;
+}
+
+.debe > :hover{
+    background-color:#6482e236;
+}
+.debe > label h2{
+    left: 140px;
+    top: -13px;
+    color: rgba(252, 252, 252, 0.733);
+}
+
+.titulo-movs{
+    position: relative;
+    margin-top: 50px;
+}
+
+.formulario{
+    width: 600px;
+    border: solid 2px rgba(0, 0, 0);
+    border-radius: 10px;
+    background: transparent;
+    margin-top: 40px;
+} 
+
+.formulario header{
+    text-align: left;
+    padding: 10px;
+    margin-left: -48px;
+    border: 2px solid rgb(0, 0, 0);
+    width: 500px;
+    border-radius: 10px;
+    margin-top: -100px;
+
+}
+.formulario header > img{
+    width: 20px;
+    right: 3%;
+    top: 35%;
+    position: absolute;
+}
+
+.formulario form{
+    padding: 10px 40px;
+    box-sizing: border-box;
+}
+
+form .datos-registro{
+    position: relative;
+    border: 2px solid #adb4b1ea;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 45px;
+    border-radius: 10px;
+
+}
+
+.datos-registro input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    height: 30px;
+}
+
+.formulario .btn{
+    width: 60%;
+    height: 45px;
+    background: #52adf7d0;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 200px 0 20px 0;
+    float: right;
+    
+}
+
+::placeholder{
+    top: -2px;
+    position: absolute;
+}
+
+form .meses-pagar{
+    position: relative;
+    border: 2px solid #adb4b1ea;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 45px;
+    width: 220px;
+    border-radius: 10px;
+}
+
+.meses-pagar input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    height: 30px;
+}
+
+.meses-pagar h3{
+    position: absolute;
+    border: 2px solid #adb4b1ea;
+    display: flex;
+    height: 45px;
+    width: 182px;
+    border-radius: 10px;
+    left: 230px;
+    font-size: 20px;
+    color: rgb(129, 127, 127);
+    top: -2px;
+    padding: 8px 8px;
+}
+
+.datos-registro select{
+    border: none;
+    padding: 10px 0;
+    width: 98%;
+    height: 100%;
+    background: none;
+    position: absolute;
+    color: rgb(129, 127, 127);
+    font-size: 16px;
+}
+
+.meses-pagar select{
+    border: none;
+    padding: 10px 0;
+    width: 98%;
+    height: 100%;
+    background: none;
+    position: absolute;
+    color: rgb(129, 127, 127);
+    font-size: 16px;
+}
+
+.file-upload-wrapper {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.file-upload-button {
+    width: 65%;
+    height: 45px;
+    left: -110px;
+    position: absolute;
+    background: #52adf7d0;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+.image-preview {
+    display: none; /* Oculta la previsualización inicialmente */
+    width: 100px;
+    height: auto;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: -110px;
+    border-radius: 10px;
+}
+
+.file-upload-wrapper h3{
+    position: absolute;
+    left: 100px;
+    font-size: 22px;
+    color: rgb(129, 127, 127);
+    padding: 8px 8px;
+}
+
+.contenedor{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+
+.titulo{
+    background: linear-gradient(#B7C9CA60, #83939460 );
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 5px 0px #85858590;
+    margin-bottom: 20px; 
+    position: relative;
+    top: 0px;
+}
+.titulo h2{
+    width: 90%;
+}
+/*////////////////// Barra lateral .///////////////////////*/
+
+
+.bl-all{/* aquí es para que la barra lateral se quede a la izquierda y el texto en el medio */
+    display: flex;
+    position: relative;
+    
+}
+.bl-mg{/*margin*/
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+.barra-lateral{ /* aqui aplico el estilo a la barra lateral en general */
+    text-align: center;
+    height: 100%;
+    display: block;
+    position: relative;
+    min-width: 240px;
+    box-shadow: 1px 0px 4px 0px #695b5b56;
+    background-color:#ffffffa2;
+   margin: 0;
+    
+}
+
+                                /*/// Barra lateral Header ///*/
+
+
+.bl-header{
+    margin: 0;
+    padding: 0;
+}
+.bl-header p{/* texto del header de la barra lateral */
+    margin: 0;
+    margin-top: -14px;
+    font-weight:bold;
+    color: #504f4f;
+    font-size: 13px;
+}
+.bl-header img{ /* logo de la institucion en el header de la BL */
+    width: 100px;
+    height: 120px;
+}
+
+                            /*////////// BODY DE LA BARRA LATERAL ///////////*/
+ul{
+    list-style: none;
+    margin: 13px;
+    padding: 0;
+}
+
+li{
+    text-align: left;
+    margin: 0px 0px 10px 0px;
+    background-color:#7d60ff15;
+   padding: 0px 0px 0px 0px;
+   border-radius: 20px;
+   transition: all 0.2s ease-in-out;
+}
+
+
+.bl-body{
+    margin: 25px 0px 0px 0px;
+    padding: 0;
+}
+
+.bl-body a{
+    margin-left: 15px;
+letter-spacing: 1.2px;  
+font-size: 0.9rem;
+display: flex;
+align-items:center;
+padding: 6px;
+color: black;
+text-decoration: none;
+
+}
+.bl-body li:hover{
+    background-color:#6482e236;
+    
+}
+
+
+.ico-bl{/*iconos de la barra lateral */
+    width: 28px;
+    margin-right: 12px;
+}
+
+
+
+
+                            /*////////// Contenedor de la Barra lateral ////////*/
+
+.bl-container{ /*contenedor, donde estará todo el texto del inicio*/
+    width: 100vw;
+    margin-left: 15rem;
+    margin-top: 0;
+    overflow: auto;
+}
+
+.t-bg{ /* color de fondo del titulo*/
+    margin:0;
+    padding: 0;
+    height: 50vh;
+    position: relative;
+    background: linear-gradient( 
+      60deg,
+    
+        
+        #5087ff3e,
+        #ff989836 ,
+        #d4d4d48a
+    );
+    }

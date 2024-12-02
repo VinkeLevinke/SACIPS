@@ -1,0 +1,324 @@
+@font-face {
+    /*AQUÍ DESCARGUE E IMPORTE UNA FUENTE */
+    font-family: Exo;
+    src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Exo", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.form-invitados{
+    background: white;
+    width: 450px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0px;
+    transition: 0.4s linear;
+}
+
+.barra{
+    width: 90%;
+    height: 15px;
+    background-color: #d8d8d8;
+    border-radius: 7.5px;
+    overflow: hidden;
+    margin: 10px 0px;
+}
+
+.barra div{
+    background-color: #3f3dc7;
+    height: 100%;
+    width: 33.33%;
+    transition: 0.8s all;
+}
+label{
+    width: 90%;
+    font-weight: 540;
+}
+.buton-invi{
+    background-color:  #426ceab9;
+    width: 90%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.siguiente{
+    cursor: pointer;
+    color: #ffffff;
+}
+.parte-2 p{
+    color: red;
+    width: 90%;
+    margin: 10px 0px;
+}
+.parte-2 div{
+    width: 90%;
+}
+.parte-2 div p{
+    color: black;
+    font-weight: none;
+    width: 100%;
+}
+.mensaje{
+    display: none;
+    transition: 0.4s;
+}
+input{
+    width: 90%;
+    border: none;
+    background-color: #d8d8d8;
+    height: 35px;
+    border-radius: 5px;
+    margin: 0px 0px 10px 0px;
+    padding-left: 5px;
+}
+select{
+    width: 90%;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #d8d8d8;
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.validar{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+input{
+    outline: none;
+}
+.validar p{
+    margin: 0px;
+    width: auto !important;
+    background-color: #3f3dc7;
+    color: white !important;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    border-radius: 0px 5px 5px 0px;
+}
+.validar input{
+    margin: 0px;
+    border-radius: 5px 0px 0px 5px;
+}
+.validar input::placeholder{
+    text-align: center;
+}
+.codigo{
+    width: 90%;
+    z-index: 11;
+    margin-bottom: 5px;
+}
+.codex{
+    text-transform: uppercase;
+    color: red;
+}
+.codigo div{
+    background-color: #f0f0f0;
+    padding: 5px 0px;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11 !important;
+
+}
+.codigo input{
+    width: 30px;
+    border: solid gray 2px;
+    margin: 0px 5px;
+    text-align: center;
+    padding: 0px;
+    font-size: 20px;
+    color: #4e4e4e;
+}
+.codigo p{
+    width: 100%;
+    background-color:  #426ceab9;
+    margin: 0px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+    border-radius: 0px 0px 5px 5px;
+    z-index: -1;
+    position: relative;
+    transform: translateY(-5px);
+    padding-top: 5px;
+    transition: 0.6s;
+}
+
+
+
+.fondo {
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+}
+
+.fondo::before {
+    content: ''; /* Necesario para que el pseudo-elemento tenga contenido */
+    position: absolute; /* Colocamos el pseudo-elemento en la misma posición */
+    top: 0; /* Alineamos al borde superior */
+    left: 0; /* Alineamos al borde izquierdo */
+    right: 0; /* Alineamos al borde derecho */
+    bottom: 0; /* Alineamos al borde inferior */
+    background-color: rgba(0, 0, 0, 0.659); /* Color negro con opacidad (ajusta el último valor) */
+    z-index: 1; /* Asegúrate de que esté encima de la imagen de fondo */
+}
+.parte-1,.parte-2,.parte-3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.anterior{
+    background: #3064ffe0;
+}
+.parte-2,.parte-3{
+    display: none;
+}
+.volver {
+	border: none;
+	width: 450px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+	margin: 10px 0 0 0;
+	border-radius: 2px;
+	background: white;
+	color: rgb(85, 85, 85);
+	text-decoration: none;
+	transition: 0.2s;
+
+}
+.anterior, .registrar{
+    display: none;
+}
+.registrar{
+    margin-bottom: 10px;
+    cursor: default;
+}
+.volver:hover {
+	background: #e5e6eb;
+	transition: all 0.3s ease-in-out;
+}
+#mensaje-pass{
+    color: rgb(0, 0, 0);
+    width: 90%;
+    font-weight: 500;
+    font-size: 2rex;
+    margin-bottom: 10px;
+}
+.volver img {
+	height: 40px;
+	margin: 0px 10px;
+
+
+}
+
+.volver p {
+	display: block;
+	font-size: 25px;
+	margin-right: 32.5%;
+	font-size: 1.2rem;
+	font-weight: 500;
+	letter-spacing: 1.8px;
+	color: #313131;
+
+}
+.seguridad{
+    width: 90%;
+}
+.niveles div{
+    width: 25%;
+    border-left: 1px solid #7e7e7e;
+    border-right: 1px solid #7e7e7e;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    overflow: hidden;
+    background-color: #d8d8d8;
+}
+.niveles .bajo{
+    border-left: 2px solid #7e7e7e;
+    border-radius: 5px 0px 0px 5px;
+
+}
+.niveles .m-alto{
+    border-right: 2px solid #7e7e7e;
+    border-radius: 0px 5px 5px 0px;
+}
+.niveles{
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+}
+.niveles div div{
+    width: 100%;
+    height: 5px;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0.534);
+}
+.niveles div div div{
+    background-color: rgb(129, 0, 0);
+    width: 0%;
+    transition: 0.4s;
+}
+.p-title{
+    width: 90%;
+    margin-bottom: 5px;
+}
+.contraseña, .comprobar-pass{
+    width: 90%;
+    margin-bottom: 10px;
+    position: relative;
+}
+.contraseña input,.comprobar-pass input{
+    width: 100%;
+    margin: 0px;
+}
+#view{
+    width: 25px;
+    height: auto;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    top: calc(17.5px - 12.5px);
+    right: 10px;
+    cursor: pointer;
+}

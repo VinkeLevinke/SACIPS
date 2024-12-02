@@ -1,0 +1,383 @@
+/* Reset básico */
+@font-face {
+    font-family: Exo;
+    src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+
+* {
+    font-family: "Exo", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+
+.aporteConsulta-body {
+       font-family: "Exo", sans-serif;
+    background-color: #f3f4f6;
+    color: #0f0f0f;
+    line-height: 1.6;
+    padding: 20px;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+.aporteConsulta-container {
+    max-width: 1400px;
+    margin: 0 auto; /* Ajustado para centrar el contenedor sin espaciado superior */
+    padding: 20px;
+   
+    border-radius: 12px;
+   
+    overflow-x: auto; /* Permite el desplazamiento horizontal dentro del contenedor */
+}
+
+.aporteConsulta-title{
+    width: 100%;
+    text-align: left;
+}
+.contadores {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    margin-top: 2%;
+    flex-wrap: wrap; /* Permitir que las tarjetas se ajusten en pantallas más pequeñas */
+}
+
+.contador-card {
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombreado suave */
+    padding: 20px;
+    flex: 1; /* Permitir que las tarjetas se expandan */
+    margin: 10px;
+    text-align: center; /* Centrar el texto dentro de cada tarjeta */
+}
+
+
+.aporte {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.aporte.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    display: none;  /* Puedes usar esto para evitar el espacio, pero es mejor eliminarlo en tiempo de ejecución */
+}
+.aporteConsulta-aporte-container {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; /* Transición para el desvanecimiento */
+}
+
+.aporteConsulta-aporte-container.hide {
+    opacity: 0;
+}
+
+
+.contador-card h3 {
+    color: #323b86; /* Color de texto para el título */
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.contador-card p {
+    font-size: 24px; /* Tamaño de fuente más grande para el número */
+    font-weight: bold; /* Hacer el número más destacado */
+    color: #333; /* Color del número */
+}
+
+.contador-card.total {
+    background-color: #f0f8ff; /* Color de fondo diferente para el total */
+    border: 2px solid #323b86; /* Borde para el total */
+}
+
+.contador-card.total h3, .contador-card.total p {
+    color: #323b86; /* Asegurar que el texto del total sea consistente */
+}
+
+
+.aporteConsulta-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.aporteConsulta-filter-container select,
+.aporteConsulta-filter-container input,
+.aporteConsulta-filter-container button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.aporteConsulta-filter-container button {
+    background-color: #323b86;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.aporteConsulta-filter-container button:hover {
+    background-color: #323b86;
+}
+
+.aporteConsulta-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed; /* Fija el ancho de las columnas */
+}
+
+.aporteConsulta-table caption {
+    font-size: 24px;
+    color: #323b86;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 5px;
+}
+
+.aporteConsulta-table th,
+.aporteConsulta-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+  
+    text-overflow: ellipsis;
+    font-size: 14px; /* Tamaño de texto pequeño pero visible */
+}
+
+.aporteConsulta-table th {
+    background-color: #323b86;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+
+
+}
+
+.aporteConsulta-table td {
+    background-color: #ffffff;
+    font-weight: 500;
+    color: rgb(26, 26, 26);
+    text-align: center;
+}
+
+.aporteConsulta-table td span {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #e2e8f0;
+}
+
+.aporteConsulta-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed; /* Mantiene un diseño fijo para la tabla */
+}
+
+
+.aporteConsulta-table th {
+    background-color: #323b86;
+    color: white;
+}
+
+.estilosFiltros {
+    background-color: #ffffff; /* Fondo blanco para resaltar */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px; /* Espaciado interno */
+    margin: 10px 0; /* Espaciado externo para separar de otros elementos */
+    display: flex; /* Hacer que los select se alineen en fila */
+    justify-content: space-between; /* Espaciado entre selects */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.estilosFiltros select {
+    padding: 12px 15px; /* Espaciado interno aumentado para más comodidad */
+    border: 1px solid #d1d5db; /* Borde ligero */
+    border-radius: 8px; /* Bordes redondeados para los selects */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #333; /* Color de texto */
+    background-color: #f9fafb; /* Fondo ligero */
+    transition: border-color 0.3s ease; /* Efecto de transición para el borde */
+    flex: 1; /* Hacer que los selects crezcan por igual */
+    margin: 0 10px; /* Espaciado lateral para los selects */
+}
+
+.estilosFiltros select:focus {
+    outline: none; /* Sin contorno en el enfoque */
+    border-color: #323b86; /* Cambio de color en el enfoque */
+    box-shadow: 0 0 5px rgba(50, 59, 134, 0.5); /* Sombra suave en enfoque */
+}
+
+
+/* Ajustes específicos para cada columna */
+.aporteConsulta-table th:nth-child(1),
+.aporteConsulta-table td:nth-child(1) { 
+    min-width: 100px; /* Establece un ancho mínimo para la columna 1 */
+}
+.aporteConsulta-table th:nth-child(2),
+.aporteConsulta-table td:nth-child(2) { 
+    min-width: 150px; /* Establece un ancho mínimo para la columna 2 */
+}
+.aporteConsulta-table th:nth-child(3),
+.aporteConsulta-table td:nth-child(3) { 
+    min-width: 160px; /* Ancho para Tipo de Operación */
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+.aporteConsulta-table th:nth-child(4),
+.aporteConsulta-table td:nth-child(4) { 
+    min-width: 100px; /* Ancho para Fecha */
+}
+.aporteConsulta-table th:nth-child(5),
+.aporteConsulta-table td:nth-child(5) { 
+    min-width: 100px; /* Ancho para Monto */
+    white-space: nowrap;
+    overflow: hidden;
+
+
+}
+.aporteConsulta-table th:nth-child(6),
+.aporteConsulta-table td:nth-child(6) { 
+    min-width: 100px; /* Ancho para Banco */
+}
+.aporteConsulta-table th:nth-child(7),
+.aporteConsulta-table td:nth-child(7) { 
+    min-width: 150px; /* Ancho para Concepto */
+}
+.aporteConsulta-table th:nth-child(8),
+.aporteConsulta-table td:nth-child(8) { 
+    min-width: 80px; /* Ancho para Estado */
+    text-align: center; /* Centrar el estado para mejor visualización */
+}
+.aporteConsulta-table th:nth-child(9),
+.aporteConsulta-table td:nth-child(9) { 
+    min-width: 120px; /* Ancho para el botón */
+    text-align: center; /* Centrar el botón */
+    white-space: nowrap;
+    overflow: hidden;
+
+
+}
+
+/* Estilos para los botones */
+.aporteConsulta-table td .btn,
+.aporteConsulta-table td .btnRecibo {
+    background-color: #323b86;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 80px; /* Min ancho para botones */
+}
+
+.aporteConsulta-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.aporteConsulta-table td .btn,
+.aporteConsulta-table td .btnRecibo {
+    background-color: #323b86;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.aporteConsulta-table td .btn:hover,
+.aporteConsulta-table td .btnRecibo:hover {
+    background-color: #323b86;
+}
+
+.aporteConsulta-table td .reciboImg {
+    max-width: 25px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.aporteConsulta-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.aporteConsulta-pagination button {
+    background-color: #323b86;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.aporteConsulta-pagination button:hover {
+    background-color: #323b86;
+}
+
+@media (max-width: 768px) {
+    .aporteConsulta-filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .aporteConsulta-filter-container select,
+    .aporteConsulta-filter-container input,
+    .aporteConsulta-filter-container button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .aporteConsulta-table th,
+    .aporteConsulta-table td {
+        padding: 8px;
+      
+        font-size: 14px;
+    }
+
+    .aporteConsulta-table caption {
+        font-size: 20px;
+    }
+
+    .aporteConsulta-pagination button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .aporteConsulta-table th,
+    .aporteConsulta-table td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .aporteConsulta-table caption {
+        font-size: 18px;
+    }
+
+    .aporteConsulta-pagination button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}

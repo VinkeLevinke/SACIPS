@@ -1,0 +1,273 @@
+/* Estilos Generales */
+body{
+  width: 100%;
+  letter-spacing: 1.2px;
+}
+.formularioShape {
+
+  margin: 0;
+  padding: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+
+/* Otros estilos permanecen como están... */
+
+
+.aTitulo {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Contenedores del formulario */
+.formContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLeft {
+  margin-bottom: 20px; 
+}
+
+label {
+  font-size: 16px; 
+
+  color: #333333;
+  font-weight: bold;
+  
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+select,
+textarea {
+  text-align: center;
+  width: 100%;
+  padding: 14px; 
+  border: 1px solid #ced4da;
+  font-weight: 550;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #495057;
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.3s;
+  margin-top: 2%;
+  
+  margin-bottom: 2%;/* Espacio entre label y input */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #636fce;
+}
+
+textarea {
+  min-height: 100px; 
+  resize: vertical;
+}
+
+.btnEnviar {
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+
+.subirReferencia{
+  width: 100%; 
+  text-align: center;
+  display: flex;
+margin-bottom: 2%;
+  
+  }
+
+  .subirReferencia .subirImagen{
+    width: 100%;
+    background-color: #4f59a3;
+    border-radius: 4px;
+    height: 100%;
+    padding: 1%;
+    cursor: pointer;
+  }
+
+  .subirImagen p{
+    color: white;
+
+  }
+
+
+
+input[type="submit"] {
+  background-color: #636fce;
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+
+.mostrarimg{
+  width: 100%;
+ 
+  box-sizing: border-box;
+  height: 20vh;
+  background-color: #00000011;
+  overflow: hidden; /* Oculta cualquier contenido que sobresalga */
+  border: 2px dashed   #5b5b5ba5;
+ 
+
+}
+
+input[type="submit"]:hover {
+  background-color: #4f59a3;
+}
+
+#imagenPrevia {
+  display: none; /* Mantiene oculto por defecto */
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
+  height: auto; /* Ajusta la altura automáticamente */
+ 
+  box-sizing: border-box;
+  border: 1px solid #ccc; /* Opcional: Agrega un borde */
+  border-radius: 5px; /* Opcional: Esquinas redondeadas */
+  height: 100%;
+}
+
+.reciboAfiliado_imgVolver{
+  width: 6%;
+}
+
+/* LOS RECIBOS */
+
+
+/* Estilos de recibo */
+
+
+.reciboAfiliado_aTitulo {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  color: #335;
+}
+
+.reciboAfiliado_aSubtitulo {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.cuadroFormulario {
+  max-width: 600px;
+  margin: 20px auto;
+width: 100%;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px #0000001a;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.reciboAfiliado_fechaRecibo {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.reciboAfiliado_monto {
+  margin-top: 20px;
+}
+
+.reciboAfiliado_monto input {
+ 
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.reciboAfiliado_txtAreaRecibo {
+  width: 100%;
+  height: 80px;
+  resize: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.btnVolver {
+  text-align: left;
+  margin-bottom: 20px;
+
+}
+
+.btnVolver label{
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+    align-items: center;
+}
+
+.btnVolver label img{
+  padding-right: 2%;
+  
+}
+.link-btn {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .cuadroFormulario {
+      margin: 10px;
+      padding: 10px;
+  }
+  
+  .reciboAfiliado_aTitulo {
+      font-size: 20px;
+  }
+  
+  .reciboAfiliado_aSubtitulo {
+      font-size: 16px;
+  }
+}
+
+
+/* RECIBOS FIN */
+/* Estilos Responsivos */
+@media (max-width: 600px) {
+  .cuadroFormulario {
+      padding: 20px;
+      max-width: 90%;
+  }
+  
+  input[type="submit"] {
+      width: 100%;
+  }
+}

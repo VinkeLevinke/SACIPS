@@ -1,0 +1,251 @@
+/* Estilos Generales */
+.bodyForm {
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.repEgresos {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.repEgresosShape {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.titleheader {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Transición para el contenedor */
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: auto;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 20px 0;
+}
+
+.formShape {
+    width: 100%;
+}
+
+.formShape form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group, .brtAporte, .br {
+    margin-bottom: 20px; 
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+}
+
+label {
+    font-size: 16px; 
+    margin-bottom: 8px; 
+    color: #333333;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px; 
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #495057;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+    margin-top: 4px; /* Espacio entre label y input */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #636fce;
+}
+
+textarea {
+    min-height: 100px; 
+    resize: vertical;
+}
+
+.brFormSelect {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre select y botón */
+}
+
+.add_tipo {
+    background-color: #636fce;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.add_tipo:hover {
+    background-color: #4f59a3;
+}
+
+.add_tipo img {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.add_tipo-texto {
+    font-size: 14px;
+    margin: 0;
+}
+
+
+#imagenPrevia {
+    display: none; /* Mantiene oculto por defecto */
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: 200px; /* Puedes ajustar la altura según tus necesidades */
+    overflow: hidden; /* Oculta cualquier contenido que sobresalga */
+    position: relative; /* Para el posicionamiento del hijo */
+    border: 1px solid #ccc; /* Opcional: Agrega un borde */
+    border-radius: 5px; /* Opcional: Esquinas redondeadas */
+}
+
+#imagenPreviaSrc {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Centrando verticalmente */
+    left: 50%; /* Centrando horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para el centrado correcto */
+    min-width: 100%; /* Asegura que cubra todo el ancho */
+    min-height: 100%; /* Asegura que cubra toda la altura */
+    object-fit: cover; /* Para que la imagen respete su relación de aspecto */
+}
+
+
+.botonImagen{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+
+.botonImagen img, 
+.botonImagen p{
+    pointer-events: none;
+}
+
+
+/* Estilos para botones */
+.buttonsReport {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px; 
+}
+
+.volverEgresos,
+.submitReport {
+    width: 48%;
+    padding: 8px;
+    background-color: #636fce;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.volverEgresos:hover,
+.submitReport:hover {
+    background-color: #4f59a3;
+    transform: translateY(-1px);
+}
+
+.volverEgresos:focus,
+.submitReport:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(99, 111, 206, 0.6);
+}
+
+/* Estilos Responsivos */
+@media (max-width: 1280px) {
+    .repEgresosShape {
+        padding: 20px;
+        max-width: 90%;
+        margin: auto; 
+    }
+
+    .titleheader p {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="datetime-local"],
+    select,
+    textarea {
+        padding: 12px; 
+        font-size: 12px;
+    }
+
+    .add_tipo {
+        padding: 8px;
+    }
+
+    .form-group, .br {
+        flex-direction: column; 
+    }
+}
+
+@media (max-width: 600px) {
+    .buttonsReport {
+        flex-direction: column; 
+    }
+
+    .volverEgresos, .submitReport {
+        width: 100%; 
+        margin-bottom: 10px; 
+    }
+}

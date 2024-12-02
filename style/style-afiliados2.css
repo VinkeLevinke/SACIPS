@@ -1,0 +1,552 @@
+@font-face {
+    font-family: Exo;
+    src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+* {
+    font-family: "Exo", sans-serif;
+    outline: none;
+    letter-spacing: 1.2px;
+}
+
+.b-bl p {
+    color: #3a3a3a;
+}
+
+.adminHeader {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+.adminHeader p {
+    margin: 0.7em 0 0.3em 0;
+    padding: 0;
+    color: #212121;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 0.8rem;
+}
+
+.adminHeader h5 {
+    margin: 0.2em 0 0;
+    color: #333333ed;
+    padding: 0;
+    font-size: 0.7rem;
+    letter-spacing: 1.2px;
+}
+
+
+
+.adminHeader .text {
+    text-align: left;
+    padding-left: 1%;
+}
+
+.hr {
+    text-align: center;
+    width: 100%;
+}
+
+.hr hr {
+    width: 90%;
+    border: solid 1px #00000058;
+}
+
+.adminHeader .admHeaderImg {
+    width: 35px;
+    margin: 3% 6% 0;
+    height: auto;
+}
+
+.adminHeader h3 {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    color: #312323ed;
+}
+
+.b-bl {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2% 0;
+    margin: 3% 0 0;
+    border: none;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.b-bl p {
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    font-size: 0.6rem;
+}
+
+.b-bl:focus {
+    outline: none;
+    background-color: #0808ff15;
+}
+
+.activo {
+    background-color: #0808ff15;
+}
+
+.headerButtons.focus {
+    color: #454545;
+    background-color: #cecece1e;
+    border-bottom: solid 2px #323b86;
+}
+
+.focus2 {
+    color: #454545;
+    background-color: #0808ff15;
+}
+.bl-container-2 {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0;
+    overflow: auto;
+    background-color: #d1d1d150;
+}
+
+.bl-container-2::-webkit-scrollbar {
+    background-color: #f5f5f5;
+    width: 7px;
+}
+
+.bl-container-2::-webkit-scrollbar-thumb {
+    background-color: #4d5374;
+    border: solid 2px #f5f5f5;
+    width: 5px;
+}
+
+
+
+.p_tittle {
+    font-size: 20px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: flex-start;
+    color: #777777be;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    margin-top: 2em;
+}
+
+.bl-container {
+    height: 100vh;
+    width: 100%;
+    background-color: #b0b0f417;
+}
+
+
+
+
+
+.n-pago-img {
+    width: 2.1%;
+    margin-right: 1%;
+}
+
+.subtitle-form {
+    color: #535252c9;
+    margin-top: 1%;
+    margin-bottom: 0;
+    letter-spacing: 3px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+input:focus {
+    outline: none;
+}
+
+.file-upload-wrapper {
+    margin-top: 0.2%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+
+.container-formulario {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.071);
+}
+
+.formulario-body {
+    display: flex;
+    justify-content: center;
+}
+
+#consejoSelect {
+    display: none;
+    position: absolute;
+    background-color: #ff0000;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+}
+
+
+.eMonto {
+    color: #cb5252;
+}
+
+
+
+
+table button {
+    border: none;
+    border-radius: 4px;
+    padding: 1em;
+    color: white;
+    background-color: #636fce;
+    cursor: pointer;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    width: 100%;
+}
+
+.btnRecibo {
+    background-color: transparent;
+}
+
+.reciboImg {
+    width: 4em;
+}
+
+.pendingDon {
+    color: #4643d7;
+}
+
+.aproveDon {
+    color: #267f13;
+}
+
+.declined {
+    margin: 0 0 5%;
+    letter-spacing: 1.9px;
+    color: #fcfcfc;
+    background-color: #a83e3e;
+}
+
+
+.perfil-p h1 {
+    font-size: 4rem;
+}
+
+.perfil-p img {
+    margin-right: 2%;
+    width: 10%;
+}
+
+.alertaError {
+    transition: opacity 0.3s ease;
+}
+
+.reciboShape {
+    width: 100%;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reciboForm {
+    position: relative;
+    margin-top: 2em;
+    background-color: white;
+    box-shadow: 0 0 7px 0 #00000046;
+    border-radius: 7px;
+    width: 80%;
+    padding: 1em 2em 5em 2em;
+}
+
+#reciboForm input {
+    border: none;
+}
+
+.tituloRecibo {
+    color: #636fce;
+    margin: 0 0 0.5% 0;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+}
+
+.porMonto {
+    margin-bottom: 1.5em;
+}
+
+.porMonto p {
+    margin-bottom: 1em;
+}
+
+.porMonto input {
+    margin: 0.5em 0 0.4em 0;
+    font-size: 1.5rem;
+}
+
+.reciboShape .porMonto p {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: #636fce;
+}
+
+.reciboShape label,
+.reciboShape .labels input {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+
+.reciboShape .labels {
+    justify-content: space-between;
+    display: flex;
+    padding: 0 10% 0 20%;
+    margin: 0 0 1% 0;
+}
+
+.labels input,
+textarea {
+    width: 60%;
+}
+
+.labels textarea {
+    text-align: center;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    border: none;
+}
+
+.labels textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.reciboShape input {
+    text-align: center;
+}
+
+.buttonsconfirm {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.buttonsconfirm input {
+    width: 20%;
+    padding: 0.7%;
+    border: none;
+    margin-bottom: -7em;
+    font-size: 0.6rem;
+    letter-spacing: 1.2px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 2%;
+    background-color: #636fce;
+    outline: none;
+}
+
+.buttonsconfirm .declinado {
+    background-color: #e16c6c;
+}
+
+.mostrarCapture {
+    position: absolute;
+    left: 0;
+    top: 42%;
+    border: none;
+    width: 20%;
+    cursor: pointer;
+}
+
+.mostrarCapture p {
+    font-size: 0.7rem;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    margin-top: 1em;
+}
+
+.mostrarCapture .capture {
+    width: 30px;
+}
+
+.validacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000080;
+}
+
+.aprobar,
+.denegar {
+    display: none;
+    background-color: #ffffff;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    padding: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.aprobar p,
+.denegar p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5%;
+}
+
+.validacion button {
+    font-size: 0.8rem;
+    padding: 1%;
+    margin-right: 10px;
+    border: none;
+    background-color: #323b86;
+    color: #fff;
+    cursor: pointer;
+    width: 40%;
+}
+
+.atras {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    margin-left: 2em;
+    padding: 2% 2% 2% 1%;
+}
+
+.atras p {
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.atras img {
+    width: 20px;
+    margin-right: 12%;
+    pointer-events: none;
+}
+
+.closeSesion {
+    margin: 0;
+    padding: 0;
+}
+
+.closeSesion button p {
+    color: #d63232;
+}
+
+@keyframes parpadeo {
+    0% {
+        opacity: 5;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 5;
+    }
+}
+
+.aprobado {
+    color:#4643d7;
+}
+
+.declinado {
+    color:#b42a2a;
+}
+
+.pendiente {
+    color: #323b86;
+    animation: parpadeo 3s infinite;
+}
+
+/* /////////////////////////////// RESPONSIVE ///////////////////////////// */
+@media (min-width: 720px) {
+    .adminHeader .text {
+        padding-left: 2%;
+        font-size: 0.8rem; 
+    }
+
+    .adminHeader p,
+    .adminHeader h5,
+    .adminHeader h3 {
+        font-size: 0.7rem;
+    }
+
+    .b-bl {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .b-bl p,
+    .b-Nmovs p {
+        font-size: 0.6rem;
+    }
+
+
+    .perfil-p h1 {
+        font-size: 3rem;
+    }
+
+    .reciboShape {
+        flex-direction: row;
+    }
+
+    .buttonsconfirm input {
+        width: auto;
+    }
+}
+
+@media (min-width: 1080px) {
+    .adminHeader .text {
+        padding-left: 2%; 
+        font-size: 1rem;
+    }
+
+    .adminHeader p,
+    .adminHeader h5,
+    .adminHeader h3 {
+        font-size: 0.9rem;
+    }
+
+    .b-bl {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .b-bl p,
+    .b-Nmovs p {
+        font-size: 0.9rem;
+    }
+
+   
+
+    .perfil-p h1 {
+        font-size: 4rem;
+    }
+
+    .reciboShape {
+        flex-direction: row;
+    }
+
+    .buttonsconfirm input {
+        width: auto;
+    }
+}

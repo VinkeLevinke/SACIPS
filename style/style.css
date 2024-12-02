@@ -1,0 +1,539 @@
+@font-face {
+    font-family: Exo Thin;
+    src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+* {
+    user-select: none;
+    font-family: "Exo Thin", sans-serif;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+textarea {
+    resize: none;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #3f3f3f;
+    font-weight: 550;
+}
+
+button {
+    color: #444444;
+    font-weight: 550;
+    background-color: transparent;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*//// TITULO DE LA PAGINA ////*/
+.title {
+    margin: 0;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #363636;
+    z-index: 111;
+}
+
+/*////////////////// Barra lateral .//////////////////////*/
+.bl-all {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+}
+.barra-lateral {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 14em;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    flex: 0 0 auto;
+    /* Cambiado a 'auto' para evitar que el flex crezca */
+    transition: width 0.3s ease-in-out;
+}
+
+/*/// Barra lateral Header ///*/
+.bl-header {
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(210, 230, 255, 0.7);
+}
+
+.bl-header .ptittle {
+    margin: 0;
+    margin-top: -14px;
+    font-weight: bold;
+    color: #504f4f;
+    font-size: 13px;
+}
+
+.bl-header img {
+    width: 80px;
+    height: 100px;
+}
+
+.bl-mg {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container-body {
+    height: 50vh;
+    background-color: rgba(210, 230, 255, 0.1);
+}
+
+.bl-body .e-menu {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    align-items: center;
+    margin: 10px 5px;
+    letter-spacing: 1.7px;
+    border-left: solid 4px #6e89d3b3;
+    border-top: none;
+    border-bottom: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.e-menu:hover {
+    background-color: rgba(100, 130, 226, 0.2);
+}
+
+.e-menu .ico-md {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.i-como {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    height: 40px;
+    padding: 10px;
+    background-color: rgba(85, 120, 234, 0.8);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.i-como p {
+    letter-spacing: 1.3px;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.bl-body {
+    margin: 20% 0 0 0;
+    box-sizing: border-box;
+}
+
+.ico-bl {
+    width: 20px;
+    margin-right: 10px;
+    margin-left: 5%;
+}
+
+.e-bl {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 7px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.e-bl:hover {
+    background-color: rgba(62, 102, 189, 0.2);
+}
+
+.bl-container {
+    width: 100vw;
+    height: 100%;
+    margin-left: 15rem;
+    margin-top: 0;
+    overflow: auto;
+}
+
+/* Agrega esta clase para el contenido que cambias con Ajax */
+.content {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.content.active {
+    opacity: 1;
+}
+
+.t-bg {
+    margin: 0;
+    padding: 20px;
+    height: 50vh;
+    position: relative;
+    background: linear-gradient(60deg, rgba(50, 135, 255, 0.3), rgba(255, 150, 150, 0.3));
+}
+
+.container-tbg {
+    width: 60vw;
+    text-align: left;
+    padding: 20px;
+}
+
+.container-tbg .titles {
+    margin-top: 1%;
+    margin-left: 40px;
+}
+
+.container-tbg .subtitle {
+    color: #1d1d1d;
+    margin-top: 5%;
+    letter-spacing: 1.7px;
+    font-weight: 450;
+    width: 47vw;
+    font-size: 0.8rem;
+}
+
+.t-bg .prueba {
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.dl-act {
+    margin-top: 5%;
+    display: flex;
+    font-weight: 550;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #2c2c2c;
+    justify-content: left;
+    letter-spacing: 1.5px;
+}
+
+.d-2 {
+    font-size: 2rem;
+    margin-left: 10px;
+    color: #252525c9;
+}
+
+.container-body .sub-ingresar {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.pdf {
+    margin-top: 1em;
+}
+
+.sub-ingresar {
+    padding: 10px;
+    background-color: rgba(223, 223, 223, 0.813);
+}
+
+.container-body .si-title {
+    margin: 0;
+    color: #2c2c2c;
+    padding: 0;
+    letter-spacing: 1.8px;
+    font-size: 1.3rem;
+    font-weight: 660;
+}
+
+/* DESCARGAR PDF BOTON */
+.pdfButton {
+    display: flex;
+    border: none;
+    background-color: #d05d5d;
+    border-radius: 7px;
+    align-items: center;
+    padding: 0.7em 2em;
+    position: absolute;
+    right: 0;
+    margin-right: 2.5em;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.pdfButton:hover {
+    background-color: #ff6060;
+}
+
+.pdfButton p {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    margin: 0;
+    color: #f8f8f8;
+}
+
+.imgPdf {
+    width: 20px;
+    margin-right: 1em;
+}
+
+
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .container-tbg {
+        width: 58vw;
+        padding: 20px;
+    }
+
+    .t-bg .prueba {
+        width: 43%;
+    }
+
+    .title {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #444444;
+    }
+
+    .container-tbg .titles {
+        margin-left: 2%;
+        margin-top: 3%;
+    }
+
+    .container-tbg .subtitle {
+        width: 40vw;
+        font-size: 0.6rem;
+        font-weight: 600;
+        margin-top: 6.1%;
+    }
+
+    .dl-act {
+        margin-top: 7%;
+    }
+
+    .t-bg {
+        height: 45vh;
+    }
+
+    .barra-lateral {
+        min-width: 10em;
+        /* Cambia a 10em en pantallas pequeñas */
+        flex: 0 0 10em;
+        /* Establece un ancho fijo para pantallas pequeñas */
+    }
+
+}
+
+@media (min-width: 1600px) {
+    .barra-lateral {
+        min-width: 18em;
+        flex: 0 0 18em;
+        /* Establece un ancho fijo para pantallas grandes */
+    }
+}
+
+@media (max-height: 720px) {
+    .b-bl p {
+        font-size: 0.6rem;
+    }
+
+    .adminHeader p,
+    .adminHeader h5,
+    .adminHeader h3 {
+        font-size: 0.7rem;
+    }
+
+    .barra-lateral {
+        min-width: 15em;
+        flex: 0 0 15em;
+        /* Establece un ancho fijo para pantallas de baja altura */
+    }
+}
+
+
+
+@media (min-width: 1920) {
+    .barra-lateral {
+        min-width: 15em;
+        flex: 0 0 15em;
+        /* Establece un ancho fijo para pantallas grandes */
+    }
+}
+
+.adminSeparation {
+    display: flex;
+    align-items: center;
+}
+
+.burgerMenuImg {
+    display: none;
+}
+
+/* Responsiveness */
+/* //////////////////////////////////////////////////
+             /*responsive en telefonos 
+   ////////////////////////////////////////////////// */
+@media (max-width: 768px) {
+    .bl-all {
+        flex-direction: column;
+        /* Cambia la disposición a vertical */
+    }
+
+    
+body{
+    margin-bottom: 3em;
+}
+
+    .barra-lateral {
+        position: fixed;
+        /* Haz que la barra lateral sea fija */
+        bottom: 0;
+        /* Posición en la parte inferior */
+        left: 0;
+        /* Alineación a la izquierda */
+        height: 60px;
+        /* Altura automática para adaptarse al contenido */
+        width: 100%;
+        /* Ancho completo */
+        flex-direction: column;
+        /* Cambia a flex-direction: row para mostrar iconos en la parte inferior */
+        justify-content: space-around;
+        /* Espacio alrededor de los íconos */
+        display: flex;
+        padding: 2%;
+        box-shadow: 0 -1px 10px #23232336;
+        background-color: #fffffff1;
+        /* Sombra superior */
+        transition: all ease-in .2s;
+    }
+
+   
+
+    /* Agregar transición a la bl-body */
+
+    .bl-body {
+        display: flex;
+        /* En lugar de none, permitimos que el elemento ocupe espacio, pero es invisibile */
+        overflow: hidden;
+        /* Para que no se muestre contenido al expandir */
+        pointer-events: all;
+        height: 0;
+        /* Altura inicial */
+        opacity: 0;
+        /* Opacidad inicial */
+        visibility: hidden;
+        /* Comenzamos como invisible */
+        transition: max-height 0.2s ease-in, opacity 0.2s ease-in;
+        /* Transiciones para altura y opacidad */
+    }
+
+    .active{
+        background-color: #1d1d1d;
+    }
+    .expanded .bl-body {
+        visibility: visible;
+        /* Cuando se expande, se vuelve visible */
+        flex-direction: row;
+        /* Dirección vertical para el texto expandido */
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+        bottom: 45px;
+        width: 100%;
+        margin: 0;
+    }
+
+
+
+    .gestionar,
+    .hr {
+        display: none;
+    }
+
+
+    .adminSeparation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .adminHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .burgerMenuImg {
+        display: block;
+        background: url('../img/burger.svg');
+        margin-right: 1em;
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+
+    .ico-bl {
+        width: 28px;
+        /* Aumentar el tamaño del icono */
+        margin: 0;
+        /* Ajustar márgenes */
+    }
+
+    .barra-lateral .b-bl {
+        display: flex;
+        /* Asegura que los botones sean flexibles */
+        flex-direction: column;
+        /* Alinea el icono y el texto en columna */
+        align-items: center;
+        /* Centra los elementos */
+        padding: 10px;
+        /* Espaciado */
+        color: #3f3f3f;
+        /* Color del texto */
+        border-radius: 6px;
+    }
+
+    .expanded .b-bl p {
+        display: block;
+        /* Muestra el texto cuando expande */
+    }
+
+    .b-bl p {
+        display: none;
+        /* Oculta el texto en estado normal */
+    }
+
+}
+
+/* Esta clase se utilizará para expandir o colapsar */
+.expanded {
+    height: auto;
+    /* Permite que la barra lateral se ajuste al contenido expandido */
+}

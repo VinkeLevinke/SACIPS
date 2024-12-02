@@ -1,0 +1,205 @@
+@font-face {
+    font-family: Exo Thin;
+    src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-weight: 550;
+    color: #333;
+}
+
+body {
+    font-family: 'Exo', sans-serif;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente :v */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin: 0; /* Elimina el margen predeterminado del body */
+    background-color: #f4f4f4; /* Color de fondo */
+  
+}
+
+header{
+    text-align: center;
+}
+
+
+.navbar {
+    background-color: #4855b7;
+    border-radius: 4px; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+   
+}
+
+.navbar li {
+    display: inline;
+    margin: 0 20px;
+  
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  
+    padding: 2%;
+    transition:  0.3s ease;
+}
+
+.navbar a:hover {
+   
+   background-color: #f3f3f31f;
+}
+
+
+.container {
+    background-color: white; /* Color de fondo para el contenedor */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra */
+    width: 90%; /* Ancho máximo del contenedor */
+    max-width: 500px; /* Ancho máximo preferido */
+}
+
+.button-group {
+    display: flex; /* Flexbox para alinear los botones */
+    justify-content: space-between; /* Espacio igual entre los botones */
+    margin-top: 20px; /* Espaciado superior para los botones */
+}
+
+
+/* Adicionales */
+.button-update-sistem, 
+.button-update-account, 
+.button-add-account, 
+.button-delete-account, 
+.button-nav {
+    flex: 1; /* Permite que los botones se expandan igualmente */
+    margin-left: 10px; /* Espacio entre los botones */
+}
+
+.button-update-sistem:first-child,
+.button-update-account:first-child,
+.button-add-account:first-child,
+.button-delete-account:first-child,
+.button-nav:first-child {
+    margin-left: 0; /* Elimina margen izquierdo al primer botón */
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #4855b7;
+    text-align: center;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-align: left;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #636fce;
+    outline: none;
+}
+button {
+    background-color: #4855b7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4855b7;
+    
+}
+
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center; /* Centrar texto contenido */
+}
+
+.loading-circle {
+    border: 6px solid #f3f3f3;
+    border-top:6px solid #4855b7;
+    border-radius: 50%;
+ 
+    width: 32px;
+    height: 32px;
+    margin-right: 1em;
+    animation: spin .5s linear infinite; /* Esta línea ya estaba, está correcta */
+}
+
+.volverEmpezar{
+
+    background-color: #ffffff00;
+    border: 2px solid #4855b7;
+    color: #4855b7;
+    
+}
+
+.volverEmpezar:hover{
+    background-color: #606dc965;
+}
+
+
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0; /* Color de fondo de la barra */
+    border-radius: 4px; /* Bordes redondeados */
+    height: 20px; /* Altura de la barra */
+    margin-top: 10px; /* Margen superior para separación */
+}
+
+.progress-bar {
+    height: 100%; /* Altura completa de la barra */
+    width: 0%; /* Inicialmente 0% de ancho */
+    background-color: #4855b7; /* Color de la barra */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: width 0.4s ease; /* Transición suave para el cambio de ancho */
+}
+
+
+/* Añade la animación spin */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

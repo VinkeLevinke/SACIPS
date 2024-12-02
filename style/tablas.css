@@ -1,0 +1,356 @@
+@font-face {
+    font-family: Exo;
+    src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+* {
+    font-family: "Exo", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1.2px;
+}
+
+body {
+    background-color: #f7f9fc; /* Fondo suave para la página */
+}
+
+.inicio-afiliados {
+    margin: 20px;
+}
+
+.bloque {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 20px; /* Relleno adecuado */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px #0000001a; /* Sombra elegante */
+} 
+
+.filtros {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.filtros input, .filtros select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+@media (max-width: 600px) {
+    .filtros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filtros input, .filtros select {
+        margin-bottom: 10px;
+        width: 100%; /* Asegúrate de que los campos ocupen toda la anchura disponible */
+    }
+}
+
+
+.header-deuda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deuda {
+    text-align: left;
+}
+
+.titulo-movs{
+    font-size: 2rem;
+    font-weight: 550;
+    color: #262626;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtros input, .filtros select {
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    flex-grow: 1;  /* Para que ocupen el espacio disponible */
+}
+
+
+.b-Nmovs{
+    width: 100%;
+    text-align: right;
+    justify-content: space-between;
+}
+.d-dolares {
+    font-size: 1rem; /* Aumentar tamaño del texto de deuda */
+    color: #444444; /* Color del texto */
+    font-weight: bold; /* Resaltar texto */
+}
+
+.d-bs {
+    font-size: 0.8rem; /* Tamaño del texto en Bs */
+    color: #636fce; /* Color secundario */
+}
+
+input[type="button"] {
+    background-color: #636fce; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Relleno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s; /* Transición suave */
+    font-size: 1rem; /* Tamaño de fuente */
+}
+
+input[type="button"]:hover {
+    background-color: #4853a0; /* Color al pasar el cursor */
+}
+
+.tab-movs {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+    margin-top: 20px; /* Separación entre la tabla y el contenido anterior */
+}
+
+.t-head {
+    padding: 0.5em;
+    background-color: #636fce; /* Color de cabeza de tabla */
+    color: white;
+    font-size: 0.9rem; /* Ajuste para un tamaño de fuente más legible */
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+td {
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1em;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.3s;
+    overflow-wrap: break-word;
+}
+
+td:hover {
+    background-color: #f0f0fe;
+}
+
+.btnRecibo {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.btnRecibo img {
+    max-width: 20px;
+}
+
+.addBanco, .btn-generico, .btn-busqueda {
+    width: 100%;
+    padding: 0.7em;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBanco {
+    background-color: #f0f0fe;
+    color: #2b2b2bc5;
+}
+
+.addBanco:hover {
+    background-color: #d1d1f1; /* Cambio de color al pasar el cursor */
+}
+
+.btn-generico, .btn-imagenes {
+    border: none;
+    color: white;
+    background-color: #636fce;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    padding: 0.6em; 
+}
+
+.ReciboCapture{
+    width: 100%;
+    padding: 1%;
+    cursor: pointer;
+    background-color: #636fce;
+    border: none;
+    border-radius: 8px;
+}
+
+.ReciboCapture p{
+    color: white;
+}
+
+
+#formularioMovs {
+    
+       height: 20vh;
+       box-shadow: 0 0 6px  0 #26262636;
+       padding: 0;
+       margin: 0;
+       margin-bottom: 10em;
+       background-color: white;
+}
+.btn-generico:hover, .btn-imagenes:hover {
+    background-color: #4853a0; /* Color al pasar cursor */
+}
+
+.btn-busqueda {
+    background-color: #c6d1ff; 
+}
+
+.btn-busqueda:hover {
+    background-color: #636fce; /* Cambio de color al pasar el cursor */
+}
+
+.aportes-count {
+    margin-top: 20px;
+    padding: 15px;
+   
+    border-radius: 8px;
+   
+}
+
+.aportes-count h4 {
+    margin-bottom: 10px;
+    color: #636fce;
+}
+
+.contadores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los contadores */
+    margin-bottom: 15px; /* Espacio al final */
+}
+
+.contador {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px #0000001a;
+    flex: 1; /* Esto permitirá que los contadores se expandan uniformemente */
+    max-width: 150px; /* Establece un ancho máximo para la tarjeta */
+    text-align: left; /* Alineación de texto a la izquierda */
+}
+
+.contador-titulo {
+    font-weight: bold;
+    color: #333;
+}
+
+.contador-valor {
+    font-size: 1.2rem; /* Tamaño de fuente para los valores */
+    color: #636fce; /* Color diferente para los valores */
+}
+
+.pagadoAfiliado{
+    color: #636fce ;
+}
+.alertaAfiliado{
+    color: #781c1c;
+}
+
+.correct{
+    width: 32px;
+    height: 32px;
+}
+
+/* Media Queries para dispositivos móviles */
+
+@media (max-width: 600px) {
+
+    .deuda {
+
+        width: 100%;
+    }
+
+    .barra-botones{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;    
+    }
+
+    .b-Nmovs{
+        width: 100%;
+        display: flex;
+        margin-top: 1em;
+        justify-content: space-between;
+    }
+
+    .d-dolares {
+        font-size: 0.8rem; /* Tamaño del texto más pequeño en móvil */
+    }
+
+    .d-bs {
+        font-weight: 550;
+        font-size: 0.7rem; /* Tamaño del texto en Bs más pequeño en móvil */
+    }
+
+    input[type="button"] {
+        padding: 8px 12px; /* Relleno del botón en móvil */
+        font-size: 0.6rem; /* Tamaño de fuente más pequeño en móvil */
+    }
+
+
+    .t-body button {
+        font-size: 0.5rem;
+        padding:8px 8px;
+    }
+
+    
+    .t-head, td {
+        font-size: 0.6rem; 
+        padding: 0.5em; 
+        text-align: center;
+    }
+
+    .addBanco, .btn-imagenes, .btn-generico, .btn-busqueda {
+        padding: 0.8em; 
+        font-size: 0.7rem; 
+    }
+
+    /* Ocultar ciertas columnas en dispositivos móviles */
+    table tr td:nth-child(5),
+    table tr td:nth-child(4),
+    table tr td:nth-child(8) {
+        display: none; 
+    }
+
+    table tr th:nth-child(5),
+    table tr th:nth-child(4),
+    table tr th:nth-child(8) {
+        display: none; 
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1280px) {
+    .t-head, td {
+        font-size: 0.75rem; 
+    }
+
+    .addBanco {
+        width: 20%;
+    }
+}

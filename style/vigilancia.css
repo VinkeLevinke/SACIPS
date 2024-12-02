@@ -1,0 +1,474 @@
+@font-face {
+  font-family: Exo;
+  src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+* {
+  font-family: "Exo", sans-serif;
+  letter-spacing: 1.2px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #3a3a3a;
+}
+
+body {
+  background-color: #6d809a37;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centrar todo horizontalmente */
+}
+
+.bodyVgl {
+  padding: 2em;
+  max-width: 1200px;
+  /* Ancho máximo del contenido */
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  /* Centrar todo horizontalmente */
+  overflow-x: hidden;
+  /* Evitar el scroll horizontal */
+}
+
+#btn-edit {
+  padding: 1%;
+  margin: 0;
+  text-align: center;
+  background-color: #414c9c00;
+  width: 12%;
+}
+
+#btn-edit img {
+  width: 80%;
+  pointer-events: none;
+}
+
+/*************** BARRA DE NAVEGACION | HEADER VIGILANCIA ***********************/
+.sacipsLogo {
+  width: 40px;
+  /* Ajustar el tamaño del logo */
+  margin-left: 1em;
+}
+
+
+.headerVigilancia {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  background-color: #fcfcfcf5;
+  padding: 1em 2em;
+  box-shadow: 0 0 4px 0 #3a3a3a8e;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  /* Asegurar que el padding no cause scroll horizontal */
+}
+
+
+.tituloVigilancia {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  /* Ajustar el tamaño del título */
+  flex: 1;
+}
+
+.navPerfil,
+.navSacipsLogo {
+  display: flex;
+  align-items: center;
+}
+
+.navSacipsLogo {
+  justify-content: flex-end;
+}
+
+.navSacipsLogo p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+
+.navPerfil .perfil {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+}
+
+.navPerfil .perfil:hover {
+  background-color: #414c9c46;
+  transition: 0.4s ease-in-out;
+}
+
+.navPerfil-text p {
+  margin: 0;
+  font-size: 0.7rem;
+  padding: 0;
+  pointer-events: none;
+}
+
+.perfilVgImg {
+  width: 30px;
+  /* Ajustar el tamaño de la imagen del perfil */
+  margin-right: 1em;
+  pointer-events: none;
+}
+
+.navButtons {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+.navButtons button {
+  width: auto;
+  min-width: 150px;
+  /* Ancho mínimo de los botones */
+  margin: 0 1em;
+  /* Espacio entre los botones */
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: none;
+  box-shadow: 0 0 2px 0 #3a3a3a8e;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #636fce;
+  transition: 0.4s ease-in-out;
+}
+
+.navButtons button:hover,
+.navButtons button:focus,
+.navButtons button.active {
+  background-color: #414c9c;
+  color: white;
+  /* Color del texto al estar activo */
+}
+
+.navButtons button p {
+  color: white;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.navButtons button img {
+  width: 20px;
+  /* Ajustar el tamaño de la imagen del botón */
+  margin-right: 10px;
+}
+
+/*************** BARRA DE NAVEGACION | HEADER VIGILANCIA FIN ***********************/
+
+/*************** SECTION BODY VIGILANCIA *******************/
+.tablasVistas {
+  width: 100%;
+  max-width: 1200px;
+  /* Ancho máximo del contenido de la tabla */
+  display: flex;
+  flex-direction: column;
+  /* Para que el contenido esté alineado en columna */
+  align-items: center;
+  /* Centrar el contenido horizontalmente */
+  box-sizing: border-box;
+  margin-bottom: 2em;
+  /* Espaciado inferior */
+}
+
+.vistaReciente,
+.tablaVigilancia {
+  width: 100%;
+  /* Asegurar que ocupen el 100% del contenedor */
+  background-color: white;
+  box-sizing: border-box;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 0 #3a3a3a8e;
+  margin-bottom: 2em;
+  /* Espaciado inferior */
+}
+
+.vistaHeader h2,
+.navTituloVigi h2 {
+  font-size: 1.2rem;
+  /* Ajustar el tamaño de los títulos */
+  margin: 0;
+  padding-bottom: 0.5em;
+}
+
+.dolarPrecio p,
+.busqueda button p {
+  font-size: 0.8rem;
+  /* Ajustar el tamaño del texto */
+}
+
+
+
+
+
+/* table movs general */
+
+/* Correcciones para asegurar que la tabla muestre todo el contenido */
+/* Correcciones para asegurar que la tabla muestre todo el contenido */
+.tableMovsVigilancia {
+  width: 100%;
+  max-width: 1300px;
+  /* Aumentar el ancho máximo de la tabla */
+  margin: 0 auto;
+  /* Centrar la tabla */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Sombra para un toque elegante */
+  border-radius: 10px;
+  /* Bordes redondeados */
+  overflow-x: auto;
+  /* Permitir desplazamiento horizontal si es necesario */
+  table-layout: auto;
+  /* Distribuir las columnas de manera uniforme */
+}
+
+.tableMovsVigilancia th,
+.tableMovsVigilancia td {
+  border: none;
+  /* Quitar bordes */
+  padding: 10px 15px;
+  /* Espaciado dentro de las celdas */
+  text-align: center;
+  white-space: nowrap;
+  /* Evitar que el texto se rompa en varias líneas */
+  word-wrap: break-word;
+  /* Ajuste de texto dentro de las celdas */
+  background-color: #ffffff;
+  overflow: visible;
+  /* Mostrar todo el contenido */
+  text-overflow: clip;
+  /* Evitar puntos suspensivos */
+}
+
+.tableMovsVigilancia td {
+  font-size: 0.9rem;
+}
+
+.tableMovsVigilancia th {
+  font-size: 0.85rem;
+  /* Tamaño de fuente más pequeño */
+  padding: 10px 15px;
+  text-align: center;
+  background-color: #414c9c;
+  /* Fondo azul para los encabezados */
+  color: white;
+  /* Texto blanco para los encabezados */
+}
+
+.navTituloVigi {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1em;
+}
+
+.offset {
+  display: flex;
+  align-items: center;
+}
+
+#tablaContainer {
+  transition: opacity 0.2s ease;
+  max-width: 1300px;
+  /* Aumentar el ancho máximo del contenedor */
+  margin: 0 auto;
+  /* Centrar el contenedor */
+  overflow-x: auto;
+  /* Permitir desplazamiento horizontal si es necesario */
+}
+
+.tableMovsVigilancia button {
+  background-color: #414c9c;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: none;
+  padding: 0.5em 1em;
+  /* Espaciado dentro del botón */
+  border-radius: 5px;
+  /* Bordes redondeados */
+}
+
+/******** HACER UNA BUSQUEDA *******/
+
+.busqueda button {
+  display: flex;
+  align-items: center;
+  background-color: #bbc1f06e;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.5em 1em;
+}
+
+.busqueda button:hover {
+  transition: 0.4s ease-in-out;
+  background-color: #6370ce99;
+}
+
+.busqueda button img {
+  width: 20px;
+  /* Ajustar el tamaño de la imagen */
+  margin-right: 1em;
+  pointer-events: none;
+}
+
+.busqueda button p {
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.btn-update {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn-update button {
+  width: 20%;
+  border-radius: 4px;
+}
+
+.btn-update .btn-closed {
+  background-color: #b45454;
+  color: white;
+}
+
+/******* MODAL *******/
+
+.cajaCompleta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Dos columnas de igual tamaño */
+  gap: 20px;
+  /* Espacio entre las cajas */
+}
+
+.boxUpdate {
+  background-color: #fefefe;
+  padding: 2%;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 0 #48484837;
+}
+
+.cajaBoton {
+  display: flex;
+  justify-content: space-between;
+  background-color: #d6d6d63a;
+  padding: 2% 4%;
+  border-radius: 5px;
+}
+
+.boxUpdate p {
+  letter-spacing: 1.2px;
+  font-size: 1rem;
+}
+
+.headerUpdate h2 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.logout #logout_vig {
+  background-color: #b45454;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+#logout_vig img {
+  width: 12%;
+  margin-right: 1em;
+}
+
+#logout_vig p {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  color: white;
+}
+
+.act .modal .modal-content {
+  width: 30%;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.inputGroup label {
+  margin-right: 10px;
+}
+
+.inputGroup input {
+  flex: 1;
+  text-align: center;
+}
+
+#comentarioVigilantePago {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#btn-comentar-pago {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #636fce;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-comentar-pago:hover {
+  background-color: #414c9c;
+}
+
+.transaccionReciente {
+  background-color: white;
+  /* Fondo blanco para que resalte */
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 0 #48484837;
+  margin-bottom: 1em;
+  /* Espacio debajo del bloque */
+}
+
+.transaccionDetalles {
+  font-size: 0.9rem;
+  /* Tamaño de fuente */
+  color: #3a3a3a;
+  /* Color de texto */
+}
+
+.transaccionDetalles p {
+  margin: 4px 0;
+  /* Espacio entre párrafos */
+}

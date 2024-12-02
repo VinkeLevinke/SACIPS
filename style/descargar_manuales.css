@@ -1,0 +1,36 @@
+/*Estilos de boton de descargar manuales.*/
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #4556a3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+}
+
+.btn-download:hover {
+    background-color: #2f3e7c;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-download:active {
+    background-color: #4556a3;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download:focus {
+    outline: none;
+}

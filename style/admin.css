@@ -1,0 +1,825 @@
+@font-face {
+  /*AQUÍ DESCARGUE E IMPORTE UNA FUENTE */
+  font-family: Exo;
+  src: url("../fonts/Exo-VariableFont_wght.ttf");
+}
+
+* {
+  letter-spacing: 1.2px;
+  font-family: "Exo", sans-serif;
+}
+
+/* 
+Barra lateral modificación */
+
+.adminHeader .aNombre {
+  color: #ffffff;
+}
+
+.adminHeader .tUsuario {
+  color: #d3d3d3;
+}
+
+.b-bl p {
+  color: #3a3a3a;
+}
+
+.perfilBody {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+/* Agrega esta clase para el contenido que cambias con Ajax */
+.content {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* Clase activa para mostrar el contenido */
+.content.active {
+  opacity: 1;
+}
+
+
+.adminHeader .text {
+  text-align: left;
+  padding-left: 1%;
+}
+
+.adminHeader h5 {
+  margin: 0;
+  color: #333333ed;
+  padding: 0;
+  letter-spacing: 1.2px;
+}
+
+.hr {
+  text-align: center;
+  width: 100%;
+}
+
+.hr hr {
+  width: 90%;
+  border: solid 1px #00000058;
+}
+
+.adminHeader .admHeaderImg {
+  width: 35px;
+  margin: 3% 4% 3% 4%;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.adminHeader h3 {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  color: #312323ed;
+}
+
+.bl-body hr {
+  width: 90%;
+  margin: 0;
+}
+
+.bl-body .hr {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 3% 0 3% 0;
+}
+
+.titulo-movs {
+  color: #444444cc;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1% 0 0 3%;
+  letter-spacing: 0.2rem;
+
+}
+
+table td button {
+  width: 100px;
+}
+
+.bl-footer {
+  position: absolute;
+  bottom: 1%;
+  width: 14.6%;
+  justify-content: flex;
+  align-items: center;
+}
+
+.btn_box {
+  border: none;
+  width: 290px;
+  height: 250px;
+  box-sizing: border-box;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.1s;
+  box-shadow: 0 0 4px 0 #2727279b;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.btn_box:hover {
+  transform: scale(1.02);
+
+  box-shadow: 0 0 8px 0 #00000046;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn_box div {
+  border-top: solid 1px black;
+  width: 100%;
+  margin: 0px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn_box div h3 {
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
+  text-align: left;
+  padding: 2px;
+  height: 55%;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.btn_box div p {
+  height: 45%;
+  color: #1d48d8ab;
+  font-size: 36px;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.imgBox {
+  width: 40%;
+  position: absolute;
+  top: 0;
+  margin-top: 15%;
+}
+
+.box_content {
+  width: 100%;
+  height: 90vh;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_box img,
+.btn_box div {
+  pointer-events: none;
+}
+
+/*/////////////// reportar egresos, vista de EGRESOS //////////////////*/
+
+
+
+
+
+
+/* tabla de egresos */
+
+.reciboEgreso {
+  display: block;
+
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reciboEgreso .brEgresoRecibo {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+}
+
+.imgEgreso {
+  width: 12%;
+}
+
+.brEgresoTipo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.brEgresoTipo .brEgresoRecibo {
+
+  margin-left: 1em;
+}
+
+
+.brEgresoTipo #codigoEgresoInput,
+#tipoInput {
+  border: none;
+  padding: 0.8%;
+  letter-spacing: 1.2px;
+  font-size: 0.9rem;
+  width: 100%;
+  font-weight: 500;
+  text-align: left;
+}
+
+.titleEgresoRecibo {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.titleEgresoRecibo p,
+.titleEgresoRecibo h2 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1.2px;
+  color: #323b86;
+}
+
+.titleEgresoRecibo p {
+  font-weight: 500;
+  margin: 0.5em 0;
+}
+
+.reciboEgreso .brEgresoRecibo label {
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+
+
+.reciboEgreso .brEgresoRecibo #montoInput,
+.montoInput {
+  color: #d22d2d;
+}
+
+.reciboEgreso .brEgresoRecibo input {
+  font-weight: 500;
+
+  border: none;
+  width: 30%;
+  text-align: right;
+  letter-spacing: 1.2px;
+  font-size: 0.8rem;
+}
+
+
+.EgresoTitulo {
+  letter-spacing: 1.2px;
+  font-size: 1.2rem;
+}
+
+.reciboEgreso .brEgresoRecibo textarea {
+  text-align: center;
+  font-weight: 500;
+  border: none;
+  background-color: #1f1f1f19;
+  letter-spacing: 1.2px;
+}
+
+.tableEgreso button {
+  width: 90%;
+}
+
+/* USUARIOS MODIFICACIONES */
+
+
+.headerGeneral {
+  padding: 0.5% 0;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(83, 83, 83, 0.27);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonsHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.headerButtons {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.headerButtons:hover {
+  background-color: #ececec;
+}
+
+.headerButtons.focus {
+  background-color: #323b86;
+  color: white;
+}
+
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.select-custom, .busquedaHeader {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: auto; /* Cambiado a auto para mejor responsividad */
+}
+
+.busquedaHeader {
+  width: 50%; /* Ajustar el ancho de la barra de búsqueda */
+}
+
+.search-btn {
+  background-color: #323b86;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.search-btn:hover {
+  background-color: #2a3170;
+}
+
+
+.inputs {
+  display: flex;
+  margin-right: 0;
+  justify-content: center;
+  margin-bottom: 1%;
+  width: 100%;
+}
+
+.inputs .btnBuscar {
+  background-color: #323b86;
+  color: #ffffff;
+  width: 12%;
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  letter-spacing: 1.2px;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.244);
+}
+
+.buttonsHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2%;
+}
+
+button[gstAdmins] {
+  margin-right: 10%;
+}
+
+.buttonsHeader button {
+  padding: 1% 1% 1% 1%;
+  margin-right: 0.7%;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: #202020c7;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.buttonsHeader .general:focus {
+  outline: none;
+  color: #454545;
+  background-color: #cecece1e;
+  border-bottom: solid 2px #323b86;
+}
+
+.gstionBody {
+  width: 100%;
+  overflow: auto;
+}
+
+
+
+.brFormBTN{
+  margin-top: 2%;
+}
+
+.iconGstion {
+  width: 8%;
+  margin-right: 3%;
+}
+
+.afiliados {
+  display: flex;
+
+  align-items: center;
+  margin: 2.5%;
+  padding: 3.5%;
+  border-radius: 7px;
+  background-color: white;
+  box-shadow: 0px 0px 3px 0px #00000037;
+}
+
+.listasSeparadas .listSeparation .email,
+.listSeparation .nombre {
+  margin-left: 5%;
+}
+
+.listSeparation {
+  display: flex;
+}
+
+.datosSeparacion {
+  display: flex;
+
+  align-items: center;
+}
+
+.datosAfiliados {
+  margin-top: 2%;
+}
+
+.datosAfiliados .titleDatos {
+  width: 22%;
+}
+
+.datos p {
+  margin: 0 5% 0.5% 0;
+  padding: 0;
+  font-weight: 600;
+
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  color: #1f1f1f;
+}
+
+.listSeparation .nombre {
+  width: 20vw;
+  margin-left: -0.4%;
+}
+
+.datosSeparacion .estatuto {
+  width: 20vw;
+}
+
+.datos .titleDatos {
+  color: #2e2e2ed5;
+}
+
+.listSeparation .email {
+  color: #38388f;
+}
+
+.listasSeparadas .titleType {
+  margin-bottom: 3%;
+
+  font-weight: 600;
+  color: #161616a0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(62, 62, 62, 0.23);
+}
+
+.buttons {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons button {
+  background-color: #00000000;
+  border: 2px solid #426ceab9;
+  color: #426ceab9;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  border-radius: 20px;
+  padding: 3% 0 3% 0;
+  margin: 2%;
+  cursor: pointer;
+}
+
+.buttons .eliminar {
+  color: #ea4242b9;
+  border: 2px solid #ea4242b9;
+}
+
+.listasSeparadas .estatuto {
+  color: rgb(39, 168, 39);
+}
+
+/* INTENTANDO EL RESPONSIVE */
+
+/* Estilos para pantallas de 1080px o más */
+@media screen and (width: 1080px) {
+  /* Tus estilos aquí */
+
+  .adminHeader {
+    padding: 8px 0 12px 0;
+  }
+
+  .adminHeader p,
+  .b-bl p {
+    font-size: 1rem;
+  }
+
+  .adminHeader h5 {
+    font-size: 1.2rem;
+
+  }
+
+  .adminHeader .admHeaderImg {
+    width: 4em;
+  }
+}
+
+
+
+/*-------------Alerta De Violacion de Seguridad--------------*/
+
+.Restriccion {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #0000005b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.Restriccion div {
+  border: solid #a3a3a3b4 2px;
+  padding: 1.5% 15%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Restriccion div p {
+  color: #d12121;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+}
+
+.Restriccion div a {
+  border: solid 2px #4e43b1e0;
+  background-color: #7365eee0;
+  padding: 5px;
+  margin-top: 20px;
+  color: white;
+  font-size: 2rex;
+}
+
+.Restriccion div img {
+  width: 128px;
+  margin-bottom: 1em;
+}
+
+
+
+
+/* PESTAÑA DE BANCOS */
+.ConsultaBancos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bancoShape {
+  background-color: white;
+  padding: 1em;
+  margin: 1em;
+  width: calc(50% - 8em);
+  /* Ajusta el ancho para que quepan 2 por fila */
+  border-radius: 7px;
+  box-sizing: border-box;
+  box-shadow: 0 0 6px 0 #3b3b3b61;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admBancos {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: auto;
+}
+
+.admBancos .bancoImg {
+  width: 15%;
+  padding-right: 2%;
+}
+
+.bancoTexto {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bancos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Asegura que los elementos estén distribuidos uniformemente */
+  width: 100%;
+}
+
+.bancoTexto .bancos p {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #515151;
+  margin-right: 10%;
+  letter-spacing: 1.2px;
+  width: 30%;
+  /* Ajusta el ancho para que todos los elementos tengan el mismo tamaño */
+  text-align: left;
+  /* Alinea el texto a la izquierda */
+}
+
+.bancoTexto .bancos .inputText {
+  font-size: 0.7rem;
+  border: none;
+  text-align: left;
+  /* Alinea el texto a la izquierda */
+  width: 70%;
+  /* Ajusta el ancho para que todos los elementos tengan el mismo tamaño */
+}
+
+
+#bncoNombre,
+.bancoTexto .bancos .nombre_banco {
+  color: #d22d2d;
+}
+
+.editBox div,
+.bancos div {
+  padding: 5% 0;
+}
+
+
+.editBox button {
+  border-radius: 4px;
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
+  padding: 0.4em 1em;
+  border: none;
+  width: 100%;
+  border: #5e73dd solid 2px;
+  color: #5e73dd;
+}
+
+.editBox .bankDelete {
+  border: none;
+  background-color: #dd5e5e;
+  color: white;
+}
+
+.bancoshape{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bancoshape .brmodal{
+  padding: 1em;
+
+}
+
+.brmodal input{
+margin-bottom: 1%;
+}
+.bancoBody {
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.cajaBotonBanco {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.busquedaBanco {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+}
+
+.cajaBotonBanco .busquedaBanco select,
+.cajaBotonBanco .busquedaBanco input {
+  border: none;
+  border-radius: 4px;
+  padding: 0.4em 1em;
+  box-shadow: 0 0 3px 0 #3b3b3b4b;
+  box-sizing: border-box;
+ 
+}
+
+
+
+#buscarBancoForm{
+  display: flex;
+  justify-content: center;
+align-items: center;
+}
+
+#buscarBancoForm div{
+  padding: 0 1em;
+}
+
+#buscarBancoForm select{
+  padding: 1%;
+}
+
+#busquedaBanco{
+  width: 50%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+
+  text-align: center;
+
+}
+
+.cajaBotonBanco .busquedaBanco select:focus {
+  outline: none;
+}
+
+.resultadoBusquedaBanco{
+  width:100%;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+  overflow: auto;
+  height: 50vh;
+}
+
+
+.resultadoBusquedaBanco .bancoShape{
+  width: 60%;
+  height: 9em;
+}
+#modal_eliminarBanco .modal-content .buttonsModal{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#modal_eliminarBanco {
+margin-top: 1em;
+}

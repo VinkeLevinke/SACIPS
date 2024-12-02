@@ -1,0 +1,173 @@
+* {
+    font-family: arial;
+    margin: 10px;
+    padding: 0px;
+}
+
+#content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 595px;
+    margin: auto;
+    height: 842px;
+    overflow: hidden;
+    background-color: white;
+}
+
+#content div {
+    width: 500px;
+    background-color: #dbdbdb;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+#content .cintillo {
+    height: 115px;
+    width: auto;
+    margin: 0px;
+}
+
+hr {
+    width: 90%;
+}
+
+body {
+    background-color: #dbdbdb;
+}
+
+@font-face {
+    font-family: Exo Thin;
+    src: url(../../fonts/Exo-VariableFont_wght.ttf);
+}
+
+@page {
+    size: 8.5in 11in;
+    margin: 1in;
+}
+
+body {
+    font-size: 12pt;
+}
+
+* {
+    font-family: "Exo Thin", sans-serif;
+    text-align: center;
+    letter-spacing: 1.2px;
+}
+
+.name {
+    font-size: 12pt;
+    font-weight: bold;
+    margin: 0%;
+}
+
+.text {
+    font-size: 9pt;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 12pt;
+}
+
+p {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.subrayado {
+    color: white;
+    border-top: 4px solid #636fce;
+    border-top-left-radius: 12%;
+    border-top-right-radius: 12%;
+    font-size: 12pt;
+}
+
+.ESPACIO {
+    margin-top: 20%;
+}
+
+.esquina1 {
+    border-top: 1px #757575 solid;
+    border-left: 1px #757575 solid;
+    border-top-left-radius: 5px;
+}
+
+.esquina2 {
+    border-top: 1px #757575 solid;
+    border-right: 1px #757575 solid;
+    border-top-right-radius: 5px;
+}
+
+.esquina3 {
+    border-bottom: 1px #757575 solid;
+    border-left: 1px #757575 solid;
+    border-bottom-left-radius: 5px;
+}
+
+.esquina4 {
+    border-bottom: 1px #757575 solid;
+    border-right: 1px #757575 solid;
+    border-bottom-right-radius: 5px;
+}
+
+.izqui {
+    border-left: 1px #757575 solid;
+}
+
+.dere {
+    border-right: 1px #757575 solid;
+}
+
+.bottom {
+    border-bottom: 1px #757575 solid;
+}
+
+.red {
+    color: red;
+}
+
+/* DESCARGAR PDF BOTON */
+.pdfButton {
+    border: none;
+    background-color: #d05d5d;
+    border-radius: 7px;
+    align-items: center;
+    padding: 0.7em 2em;
+    margin-right: 2.5em;
+    transition: background-color 0.3s ease-in-out;
+    color: #dbdbdb;
+}
+
+.pdfButton:hover {
+    background-color: #ff6060;
+}
+
+.btn_inicio:hover {
+    background-color: #638fce;
+}
+
+.pdfButton p {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    margin: 0;
+    color: #f8f8f8;
+}
+
+.btn_inicio {
+    background-color: #636fce;
+    /* Cambiar al color especificado */
+    border: none;
+    border-radius: 7px;
+    align-items: center;
+    padding: 0.7em 2em;
+    margin-right: 2.5em;
+    transition: background-color 0.3s ease-in-out;
+    color: #ffff;
+}

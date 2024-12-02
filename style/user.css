@@ -1,0 +1,453 @@
+/* Estilos Generales */
+* {
+    box-sizing: border-box;
+    letter-spacing: 1.2px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* PERFIL USUARIO */
+.perfil_user {
+    border: none;
+}
+
+.perfil_user .img {
+    margin: 10px;
+}
+
+.perfil_user .img div {
+    border-radius: 50%;
+    border: solid #a8a8a8a4;
+    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.47);
+    margin-right: 1em;
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+}
+
+.img {
+    position: relative;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.agregar_img img {
+    filter: brightness(0) invert(1);
+}
+
+.img .agregar_img {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: #747474;
+    border-radius: 50%;
+    padding: 8px;
+    border: solid 2px rgba(20, 20, 20, 0.57);
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.buttonDashboard {
+    border: none;
+    padding: 1em;
+    border-radius: 5px;
+    width: 80% !important;
+}
+
+/* EDITAR DATOS */
+.edit_datos {
+    width: 70%;
+    margin: auto;
+    padding: 1% 2.6%;
+    background-color: rgba(236, 236, 204, 0.76);
+    border: solid #a8a8a8a4;
+    border-radius: 0 0 7px 7px;
+    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.47);
+}
+
+.edit_datos form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.edit_datos form input {
+    font-weight: 550;
+    border: none;
+    border-bottom: 3px solid rgba(84, 84, 180, 0.68);
+    background-color: rgba(108, 108, 108, 0.18);
+    text-align: start;
+    width: calc(50% - 5px);
+    font-size: 0.9rem;
+    height: 30px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.edit_datos form label {
+    width: calc(50% - 5px);
+}
+
+.edit_datos form input::placeholder {
+    color: #292929;
+}
+
+/* TITULO EDITAR */
+.title_edit {
+    background-color: #747474;
+    width: 70%;
+    margin: auto;
+    padding: 0.5% 2.5%;
+    display: flex;
+    color: white;
+    justify-content: flex-start;
+    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.47);
+}
+
+.title_edit h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 1.2px;
+}
+
+/* PERFIL INVITADO */
+.headerPerfil {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.93);
+    padding: 0.6% 3%;
+}
+
+
+.headerPerfil img {
+    width: 11%;
+    margin-right: 4%;
+}
+
+.headerPerfil .navLogo {
+    display: flex;
+    align-items: center;
+}
+
+.headerPerfil .navLogo p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2e2e2e;
+    text-shadow: 0px 12px rgba(65, 65, 65, 0.72);
+}
+
+.salirInv {
+    display: block;
+    
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    background-color: #b12323d2;
+    color: white;
+    padding: 0.6% 2%;
+    border-radius: 5px;
+}
+
+/* CUERPO PERFIL */
+.perfilBody {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+
+/* FOTO & TEXTO */
+.fotoText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.perfilCuadro {
+    height: 30vh;
+    padding-bottom: 2em;
+    background-color: #232d7ad2;
+    box-shadow: inset 4px 0 6px rgba(0, 0, 0, 0.25);
+}
+
+.textoFoto {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 3px 0 #2e2e2e;
+}
+
+/* CAJAS PERFIL */
+.sobreTi {
+    display: grid;
+    place-items: center;
+}
+
+.cajas {
+    width: 85%;
+}
+
+.cajas .cajaSeparacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 0 2px rgba(55, 55, 55, 0.31);
+    background-color: rgba(255, 255, 255, 0.93);
+}
+
+.textoCaja {
+    width: 100%;
+    pointer-events: none;
+}
+
+.textoCaja input {
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.textoCaja p,
+.textoCaja input {
+    font-weight: 600;
+    color: #4e4e4e;
+    border: none;
+}
+
+.textoCaja p {
+    margin-bottom: 1em;
+    font-size: 1rem;
+    color: rgba(92, 92, 92, 0.78);
+}
+
+/* IMAGEN PERFIL */
+.imgContainerPerfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.imgContainerPerfil:hover {
+    background-color: rgba(99, 112, 206, 0.15);
+}
+
+.imgContainerPerfil:focus {
+    background-color: rgba(84, 84, 180, 0.34);
+}
+
+.imgCaja {
+    width: 32px;
+    margin-left: 14%;
+}
+
+.imgTXT {
+    margin-top: 5%;
+    margin-bottom: 1%;
+    width: 128px;
+ 
+}
+
+/* INFORMACION BR */
+.infoBr {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.infoBr input {
+    color: #4e4e4e;
+    font-weight: 600;
+    font-size: 1.3rem;
+    border: none;
+}
+
+.infoBr label {
+    color: #4e4e4e;
+}
+
+.infoBr .br {
+    padding: 1em;
+}
+
+/* MODAL PERFIL */
+.modal_perfil {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(17, 17, 17, 0.74);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.modal .modTitulo {
+    color: #2e2e2e;
+}
+
+.modal .tituloModal {
+    display: flex;
+    align-items: center;
+}
+
+.modal .tituloModal img {
+    width: 8%;
+    margin-left: 1em;
+}
+
+.mostrar_modal {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s;
+}
+
+.modal_container {
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 5px;
+    background-color: white;
+    padding: 1em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+}
+
+.modal_container .contenidoTexto {
+    box-sizing: border-box;
+}
+
+.modal_close {
+    text-decoration: none;
+}
+
+#formulariomodalCorreo,
+#formulariomodalTelefono {
+    margin-top: 1em;
+}
+
+.brForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.brForm div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.brForm label {
+    margin-right: 1em;
+    font-weight: 500;
+}
+
+.brForm input {
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(195, 201, 211, 0.39);
+    padding: 0.5em 1em;
+    width: 250px;
+    text-align: center;
+}
+
+.mensajeAdvertencia {
+    color: #ce6363;
+    margin-top: 1em;
+}
+
+
+
+/* MEDIDAS RESPONSIVAS */
+@media (max-width: 720px) {
+    .edit_datos {
+        padding: 2% 5%; /* espacio reducido */
+    }
+
+    
+/* CUERPO PERFIL */
+.perfilBody {
+    width: 100%;
+    height: 120vh;
+    overflow: auto;
+}
+
+    .cajas .cajaSeparacion {
+      
+        padding: 1em; /* espacio reducido */
+        margin: 1em 0; /* espacio entre cajas */
+    }
+
+    .cajas {
+        width: 100%; /* ocupan el ancho completo */
+    }
+
+    .perfilCuadro {
+        height: 30vh; /* altura reducida */
+    }
+    
+    .textoFoto {
+        font-size: 1.2rem; /* tamaño de fuente reducido */
+    }
+
+    .textoCaja input {
+        width: 100%; /* full width */
+        font-size: 1rem; /* tamaño de fuente reducido */
+    }
+
+    .brForm div {
+        flex-direction: column; /* para apilar etiquetas y entradas */
+        width: 100%; /* full width */
+    }
+}
+
+@media (min-width: 720px) and (max-width: 1080px) {
+  /* agregare logica mas adelante para pantallas medianas */
+}
+
+@media (min-width: 1080px) {
+    .buttonDashboard {
+        padding: 1.5em;
+        font-size: 1rem;
+    }
+
+    .cajas .cajaSeparacion {
+        padding: 3em;
+    }
+
+    .textCaja input {
+        font-size: 1.6rem;
+    }
+
+    .perfilCuadro {
+        height: 40vh;
+    }
+
+    .textoFoto {
+        font-size: 2.5rem;
+    }
+}

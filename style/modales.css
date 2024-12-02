@@ -1,0 +1,265 @@
+/* Modal */
+.modal,
+.modalEliminar {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* Contenido del Modal */
+.modal-content,
+.modalEliminar-content {
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 25px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    max-height: 85vh;
+    overflow-y: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-content h2 {
+    padding-top: 1em;
+}
+
+
+
+.imageContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Scrollbar personalizado */
+.modal-content::-webkit-scrollbar,
+.modalEliminar-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb,
+.modalEliminar-content::-webkit-scrollbar-thumb {
+    background-color: #6881ff;
+    border-radius: 10px;
+}
+
+/* Botón de cerrar */
+/* Botón de cerrar */
+.close {
+    color: white;
+    /* Cambiar el color del texto */
+    background-color: #ff4d4d;
+    /* Un color de fondo más llamativo */
+    border-radius: 4px;
+    /* Volverlo redondo */
+    width: 40px;
+    /* Aumentar el tamaño */
+    height: 40px;
+    /* Aumentar el tamaño */
+    display: flex;
+    /* Usar flex para centrar el contenido */
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: center;
+    /* Centrar verticalmente */
+    font-size: 1.5rem;
+    cursor: pointer;
+    /* Cambiar el cursor al pasar el mouse */
+    position: absolute;
+    /* Permitir su colocación en la esquina */
+    top: 10px;
+    /* Ajustar la posición superior */
+    right: 10px;
+    /* Ajustar la posición derecha */
+    border: none;
+    /* Eliminar el borde */
+    outline: none;
+    /* Eliminar el enfoque */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Añadir transiciones */
+
+}
+
+.close:hover,
+.close:focus {
+    background-color: #cc0000;
+    /* Color diferente al pasar el mouse */
+    transform: scale(1.1);
+    /* Efecto de escala al pasar el mouse */
+    text-decoration: none;
+    /* Mantener sin subrayado */
+}
+
+.buttonsModals {
+    display: flex;
+    margin: 2% 1%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Títulos del Modal */
+.modal-content h2,
+.modalEliminar-content h2 {
+    font-size: 1.5rem;
+    margin: 0 0 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Formulario */
+.modal-content label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content input[type="radio"] {
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-content input[type="radio"] {
+    width: auto;
+}
+
+.radio-group {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+/* Botón del Modal */
+.modal-content button {
+    background-color: #525fbb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+    margin: 0 1%;
+    width: 100%;
+}
+
+.modal-content button:hover {
+    background-color: #404a97;
+}
+
+/* Animaciones de modal */
+.modal.show .modal-content,
+.modalEliminar.show .modalEliminar-content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal.hide .modal-content,
+.modalEliminar.hide .modalEliminar-content {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Estructura de la página */
+.tipoOperaciones {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Encabezado */
+.headerh1 {
+    width: 100%;
+    background-color: #ffffff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    padding: 1em 0;
+}
+
+.headerh1 h1 {
+    font-size: 1.5rem;
+}
+
+/* Submit */
+.submit {
+    width: 90%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Botones eliminar */
+#modalEliminar button,
+#modalEliminarEgreso button {
+    background-color: #dd5e5e;
+    color: white;
+    padding: 10px;
+}
+
+/* Estilo para alerta de API */
+.closeModalApi {
+    color: #ffffff;
+    background-color: rgba(253, 105, 105, 0.796);
+    float: right;
+    font-size: 28px;
+    padding: 0.2em 0.4em;
+    font-weight: bold;
+}
+
+.closeModalApi:hover,
+.closeModalApi:focus {
+    color: black;
+    cursor: pointer;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+
+    .modal-content,
+    .modalEliminar-content {
+        width: 100%;
+    }
+
+    .submit {
+        width: 100%;
+    }
+}
+
+/* Animaciones */
+@keyframes modalopen {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error {
+    border: 2px solid red;
+}
+

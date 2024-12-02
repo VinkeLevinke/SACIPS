@@ -1,0 +1,1166 @@
+
+
+// FINNNNN //
+
+/// ----- COMIENZO DE LA FUNCION AJAX ---- ///
+
+// 1)  ---- GILBER PARTE DE USUARIOS EN ADMINISTRADOR EDITAR LOS DATOS DE USUARIO EN admCONFIG ---- //
+function enviar_form() {
+  const form_edit = document.getElementById("edit_submit");
+  form_edit.submit();
+}
+
+function ajax(page, extension = "php") {
+  const http = new XMLHttpRequest();
+  const url = `${page}.${extension}`;
+
+  http.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("af-container").innerHTML = this.responseText;
+
+      // Llamar a la función de inicialización del formulario
+      initializeForm();
+
+      //////////////////////////////////////////--------------------------------------------------///////////
+
+      /////////////////////////////////////
+      //////////////////////////////////////////
+      // 2) Aquí puedes incluir el código para la previsualización de la imagen y el envío de formularios...
+      function handleImagePreview() {
+        const inputImagen = document.getElementById("imagen");
+        const imagenPrevia = document.getElementById("imagenPrevia");
+
+        inputImagen.addEventListener("change", function (event) {
+          const archivo = event.target.files[0];
+          if (archivo) {
+            const urlImagen = URL.createObjectURL(archivo);
+            imagenPrevia.src = urlImagen;
+            imagenPrevia.style.display = "block"; // Mostrar la previsualización
+          }
+        });
+      }
+
+      // Función para el envío del formulario
+      function handleFormSubmission() {
+        const form = document.getElementById("form");
+        const InputImage = document.getElementById("imagen_perfil");
+
+        InputImage.addEventListener("change", () => {
+          // Envía automáticamente el formulario cuando se selecciona un archivo
+          if (InputImage.files.length > 0) {
+            form.submit();
+          }
+        });
+      }
+
+      // Verificación de la página actual
+      if (document.getElementById("imagen")) {
+        handleImagePreview(); // Estamos en afiliadosAportes.php
+      }
+
+      if (document.getElementById("imagen_perfil")) {
+        handleFormSubmission(); // Estamos en admConfig.php
+      }
+
+      // ------------------------------------------------------------------------------------------------------//
+      // 3) --------------------CODIGO PARA ABRIR LA NOTIFICACIONES EN EL HEADER --------------------------------//
+
+
+
+      /*---------------------MODAL PARA PERFIL -------------------------*/
+
+
+
+
+      // --------------------CODIGO PARA ABRIR LA NOTIFICACIONES EN EL HEADER FIN --------------------------------//
+      // ------------------------------------------------------------------------------------------------------//
+      // La URL de la API de ExchangeRate-API con tu clave
+      const apiKey = 'f4a768e68a20b957a791dff8';
+      const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
+
+      // Función para obtener el precio del dólar
+      async function fetchDollarPrice() {
+        try {
+          const response = await fetch(apiUrl);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          // Supongamos que el precio del dólar está en data.conversion_rates.VES
+          const priceInVES = data.conversion_rates.VES;
+          return priceInVES;
+        } catch (error) {
+          console.error('Error fetching dollar price:', error);
+          return null;
+        }
+      }
+
+      // Función para actualizar el header con el precio del dólar
+      async function updateHeaderWithDollarPrice() {
+        const price = await fetchDollarPrice();
+        if (price !== null) {
+          // Limitar el precio a dos decimales y para que el dolar se muestre. (NI SE TE OCURRA TOCARLO PERRAVIN)
+          let monto_pago = document.querySelectorAll('#id_dolar');
+          let i = 0;
+          monto_pago.forEach(monto => {
+            i++;
+            let monto_pago_get = monto.textContent;
+            let DolarBcv = parseFloat(price.toFixed(2));
+            let Bolivares = monto_pago_get.substring(7);
+            Bolivares = Bolivares.replace(".", "");
+            Bolivares = parseFloat(Bolivares);
+            let resultado = 0;
+            resultado = Bolivares / DolarBcv;
+            document.getElementById('precioEnDolar' + i).textContent = '$' + resultado.toFixed(2);
+          });
+        }
+      }
+      updateHeaderWithDollarPrice();
+
+      //////////////////////////////
+
+
+
+      /*------- MOISES INTENTA COLOCARLO AQUI -------------*/
+
+
+      /*----------------- MANDAR EL FORMULARIO PARA ADMINISTRADORES Y APROBAR EL CAMBIO DE CORREO ----------- */
+
+      document.getElementById('formulariomodalCorreo').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        let nuevoCorreo = document.getElementById('nuevoCorreo').value;
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', './componentes/conexiones/cambio_correo/solicitar_cambio_correo.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('mensajeRespuesta').innerText = xhr.responseText;
+            }
+        };
+        
+        xhr.send('nuevoCorreo=' + encodeURIComponent(nuevoCorreo));
+    });
+    
+/* SOLICITUD DEL ADMINISTRADOR */
+
+// Definir la función en el ámbito global// Definir la función en el ámbito global
+window.manejarSolicitud = function(idSolicitud, accion) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', './componentes/administrador/solicitudes/manejar_solicitud.php', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          alert(xhr.responseText);
+          location.reload();
+      }
+  };
+  
+  xhr.send('idSolicitud=' + idSolicitud + '&accion=' + accion);
+};
+
+
+
+    /* FIN SOLI */
+
+  /*------- admins aprueban el cambio---------------*/
+
+
+
+      /////////////////////////////////////
+
+
+      /* =========MODAL DE PERFILES AFILIADOS E INVITADOS=-====== */
+
+
+
+
+      const abrirCorreo = document.getElementById('correoAbrir');
+      const abrirTelefono = document.getElementById('telefonoAbrir');
+
+      const modalPerfil = document.querySelector('.modal_perfil');
+      const modalPerfil_tf = document.getElementById('telefonoModal')
+
+      const closeModal = document.getElementById('cerrarModal');
+      const closeModalTelefono = document.getElementById('cerrarModalTelefono');
+
+
+      abrirCorreo.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalPerfil.classList.add('mostrar_modal');
+
+      });
+
+      abrirTelefono.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalPerfil_tf.classList.add('mostrar_modal');
+
+      });
+
+
+      closeModal.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalPerfil.classList.remove('mostrar_modal');
+
+      });
+
+      closeModalTelefono.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalPerfil_tf.classList.remove('mostrar_modal');
+      });
+
+      /* enviar el formulario */
+      /*----------------- MANDAR EL FORMULARIO PARA ADMINISTRADORES Y APROBAR EL CAMBIO DE CORREO ----------- */
+
+      document.getElementById('formulariomodalCorreo').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        let nuevoCorreo = document.getElementById('nuevoCorreo').value;
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', './componentes/conexiones/cambio_correo/solicitar_cambio_correo.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('mensajeRespuesta').innerText = xhr.responseText;
+            }
+        };
+        
+        xhr.send('nuevoCorreo=' + encodeURIComponent(nuevoCorreo));
+    });
+    
+
+  /*------- admins aprueban el cambio---------------*/
+
+      
+  
+  function manejarSolicitud(idSolicitud, accion) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', './componentes/administrador/solicitudes/manejar_solicitud.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            alert(xhr.responseText);
+            location.reload();
+        }
+    };
+    
+    
+
+    xhr.send('idSolicitud=' + idSolicitud + '&accion=' + accion);
+}
+      //////////////////////////////////////////--------------------------------------------------///////////
+
+      // 4)  Obtiene el elemento del cuerpo de la tabla
+      const tableBody = document.getElementById("tableBody");
+      tableBody.innerHTML = "";
+      data.forEach((row) => {
+        const tableRow = document.createElement("tr");
+        tableRow.innerHTML = `
+          <td>${row.tipo_aporte}</td>
+          <td>${row.monto}</td>
+          <td>${row.fechaAporte}</td>
+          <td>${row.referencia}</td>
+          <td>${row.referencia}</td>
+          <td><button>Mostrar</button></td>
+          <td><button>MRecibo</button></td>
+        `;
+        tableBody.appendChild(tableRow);
+      });
+
+      // El resto del código permanece igual...
+    }
+  };
+  http.open("get", url);
+  http.send();
+} //---- AQUI ACABA LA FUNCION AJAX ----- //
+
+////////////////////////////////////-----------------------////////////////////////////////////////////'
+// -*----------------- 5) ENVIAR EL FORMULARIO DE DONACIONES Y APORTES PATRONALES-------//-//-//-//-//-//-//
+function initializeForm() {
+  const tipoAporteSelect = document.getElementById("tipoAporte");
+  const tipoOperacionSelect = document.getElementById("tipoOperacion");
+  const contenedorBanco = document.getElementById("contenedorBanco");
+  const formularioEgreso = document.getElementById("formularioEgreso");
+
+  if (!formularioEgreso) return; // Salir si no se encuentra el formulario
+
+  const formElements = formularioEgreso.querySelectorAll(".br");
+  const firmaElements = document.querySelectorAll(".firma");
+
+  // Ocultar todos los elementos al cargar
+  formElements.forEach((element) => (element.style.display = "none"));
+  firmaElements.forEach((element) => (element.style.display = "none"));
+  contenedorBanco.style.display = "none"; // asegurarse que contenedorBanco está oculto inicialmente
+
+  // Mostrar elementos basado en el tipo de aporte seleccionado previamente
+  if (tipoAporteSelect.value) {
+    formElements.forEach((element) => (element.style.display = "flex"));
+    firmaElements.forEach((element) => (element.style.display = "flex"));
+  }
+
+  tipoAporteSelect.addEventListener("change", function () {
+    const selectedValue = this.value;
+    formElements.forEach((element) => (element.style.display = "none"));
+    firmaElements.forEach((element) => (element.style.display = "none"));
+    contenedorBanco.style.display = "none"; // Ocultar contenedorBanco cada vez que se cambia el tipo de aporte
+
+    if (selectedValue) {
+      // Muestra los elementos dependiendo de la selección
+      formElements.forEach((element) => (element.style.display = "flex"));
+      firmaElements.forEach((element) => (element.style.display = "flex"));
+
+      // Usa AJAX para cargar contenido según la selección
+      if (selectedValue === "Aportes Patronales") {
+        loadContentWithAjax(
+          "./componentes/administrador/repAportesPatronales.php",
+          "Aportes Patronales"
+        );
+      } else if (selectedValue === "Donación") {
+        loadContentWithAjax(
+          "./componentes/administrador/repDonaciones.php",
+          "Donación"
+        );
+      }
+    }
+  });
+
+  // Inicializar el contenedor del banco basado en el tipo de operación
+  updateBancoVisibility();
+
+  // Event Listener para tipoOperacion
+  tipoOperacionSelect.addEventListener("change", updateBancoVisibility);
+}
+
+function updateBancoVisibility() {
+  const tipoOperacionSelect = document.getElementById("tipoOperacion");
+  const contenedorBanco = document.getElementById("contenedorBanco");
+
+  contenedorBanco.style.display =
+    tipoOperacionSelect.value === "transferenciaFondos" ? "flex" : "none";
+}
+
+function loadContentWithAjax(url, tipoAporte) {
+  fetch(url)
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("af-container").innerHTML = html;
+      document.getElementById("tipoAporte").value = tipoAporte; // Mantener la selección del tipo de aporte
+      initializeForm(); // Re-inicializar el formulario después de cargar el contenido
+    })
+    .catch((error) =>
+      console.error("Error No pudimos cargar el contenido:", error)
+    );
+}
+
+// Ejecutar la función al cargar la página
+document.addEventListener("DOMContentLoaded", initializeForm);
+
+//////
+//-------------------------fin form de aportes patronales y donaciones------------------------//
+
+let id_usuario_edit = 0;
+let permisos_user;
+//--------MUESTRA LOS DATOS DEL USUARIO SELECCIONADO PARA EDITAR SUS PERMISOS----------//
+function administrar_permisos(id_usuario_edit) {
+  //tomar datos------//
+  imgagen_user = document.querySelector(
+    "#usuario_" + id_usuario_edit + " img"
+  ).src;
+  nombre_user = document.querySelector(
+    "#usuario_" + id_usuario_edit + " .textMod h2"
+  ).textContent;
+  tipo_user = document.querySelector(
+    "#usuario_" + id_usuario_edit + " .textMod .pMod"
+  ).textContent;
+  permisos_user = document.querySelector(
+    "#usuario_" + id_usuario_edit + " .textMod #permisos_user"
+  ).value;
+  tlf_user = document.querySelector(
+    "#usuario_" + id_usuario_edit + " .textMod #telefono_usuario"
+  ).textContent;
+  email_user = document.querySelector(
+    "#usuario_" + id_usuario_edit + " .textMod #correo_usuario"
+  ).textContent;
+  document.getElementById("id_del_usuario").value = id_usuario_edit;
+
+  //Mostrar los datos--------//
+  document.querySelector(".infoOpcionPrioridad img").src = imgagen_user;
+  document.querySelector(".infoTexto #nombre_user_edit").textContent =
+    nombre_user;
+  document.querySelector(".infoTexto #tipo_user_edit").textContent = tipo_user;
+  document.querySelector(".infoTexto #tlf_user_edit").textContent = tlf_user;
+  document.querySelector(".infoTexto #email_user_edit").textContent =
+    email_user;
+
+  for (j = 0; j < permisos_user.length; j++) {
+    if (permisos_user[j] == "1") {
+      document.getElementById("op-" + j).checked = true;
+    } else if (permisos_user[j] == "0") {
+      document.getElementById("op-" + j).checked = false;
+    }
+  }
+  k = 0;
+  checkboxes = document.querySelectorAll(".op_container");
+  checkboxes.forEach(function (chekbox) {
+    chekbox.style.display = "flex";
+  });
+  checkboxes2 = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes2.forEach(function (chekbox2) {
+    if (chekbox2.checked == true) {
+      document.querySelector(
+        '.checkbox_op[for="op-' + k + '"]'
+      ).style.background = "#5452ff";
+      document.querySelector(
+        '.checkbox_op[for="op-' + k + '"] div'
+      ).style.transform = "translateX(25px)";
+    } else if (chekbox2.checked == false) {
+      document.querySelector(
+        '.checkbox_op[for="op-' + k + '"]'
+      ).style.background = "#a0a0a0";
+      document.querySelector(
+        '.checkbox_op[for="op-' + k + '"] div'
+      ).style.transform = "translateX(5px)";
+    }
+    k += 1;
+  });
+}
+let numero_check = 0;
+
+function check_on(numero_check) {
+  checkboxes3 = document.querySelector('input[id="op-' + numero_check + '"]');
+  if (checkboxes3.checked == false) {
+    document.querySelector(
+      '.checkbox_op[for="op-' + numero_check + '"]'
+    ).style.background = "#5452ff";
+    document.querySelector(
+      '.checkbox_op[for="op-' + numero_check + '"] div'
+    ).style.transform = "translateX(25px)";
+  }
+  if (checkboxes3.checked == true) {
+    document.querySelector(
+      '.checkbox_op[for="op-' + numero_check + '"]'
+    ).style.background = "#a0a0a0";
+    document.querySelector(
+      '.checkbox_op[for="op-' + numero_check + '"] div'
+    ).style.transform = "translateX(5px)";
+  }
+}
+
+//------GUARDA LOS PERMISOS Y ENVIA EL FORMULARIO-----------//
+
+function enviar_form_opction() {
+  let nuevos_permisos = "";
+  for (j = 0; j < 13; j++) {
+    option_select = document.getElementById("op-" + j).checked;
+    if (option_select == true) {
+      nuevos_permisos = nuevos_permisos + "1";
+    } else if (option_select == false) {
+      nuevos_permisos = nuevos_permisos + "0";
+    }
+  }
+  console.log(nuevos_permisos);
+  document.getElementById("editar_permisos").value = nuevos_permisos;
+  document.getElementById("editar_permisos_de_usuario").submit();
+}
+
+//----fin de mis funciones------//
+
+function addEventListenerIfElementExists(elementId, event, action) {
+  let element = document.getElementById(elementId);
+  if (element) {
+    element.addEventListener(event, action);
+  }
+}
+
+function setFocusAndLoad(idButton, page) {
+  const button = document.getElementById(idButton);
+  if (button) {
+    button.focus();
+    ajax(page);
+    button.classList.add("activo");
+  }
+}
+
+
+
+///---- Las pestañas que cargaran por defecto -----///
+
+document.addEventListener("DOMContentLoaded", function () {
+  const admGeneralBtn = document.getElementById("admVigilanciaGeneral");
+  admGeneralBtn.classList.add("activo");
+  ajax("./componentes/afiliados/afiliadosPerfil");
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const admGeneralBtn = document.getElementById("aPerfil");
+  admGeneralBtn.classList.remove("activo");
+  ajax("./componentes/afiliados/afiliadosMovs");
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const admGeneralBtn = document.getElementById("admGeneral");
+  admGeneralBtn.classList.remove("activo");
+  ajax("./componentes/administrador/admDashboard");
+});
+
+/*document.body.addEventListener("click", function (event) {
+  if (event.target.id === "admVerification") {
+    ajax("./recibo-donacion");
+  }
+});*/
+
+
+
+
+
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "open-form-btn") {
+    ajax("./componentes/administrador/recibo");
+  }
+});
+
+
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "admVigilanciaGeneral") {
+    ajax("./componentes/cnjVigilancia/cnjVigilanciaDashboard");
+  }
+});
+
+
+
+
+
+
+/*----------------------- AJAX CARGA CON LOCALSTORE --------------------- */
+
+/*----------------------- AJAX CARGA CON LOCALSTORE --------------------- */
+
+// Función para manejar la activación de botones
+
+function activateButton(button) {
+  const sidebarButtons = document.querySelectorAll(".b-bl");
+  sidebarButtons.forEach(btn => btn.classList.remove("activo")); // Quita la clase activa de todos los botones
+  button.classList.add("activo"); // Añade la clase activa al botón pulsado
+  localStorage.setItem("activeButton", button.id);
+}
+
+
+/* Aqui colocan la ruta de la pestaña que quieren cargar, primero el id del boton y luego la ruta a donde
+quieren que lleve el boton */
+
+/* Aquí colocan la ruta de la pestaña que quieren cargar, primero el id del botón y luego la ruta a donde
+quieren que lleve el botón */
+const componentRoutes = {
+
+  /* administrador */
+  admUsuarios: "./componentes/administrador/admUsuarios",
+  admGeneral: "./componentes/administrador/admDashboard",
+  admReportEgresos: "./componentes/administrador/repEgreso",
+  admConAportesPatronales: "./componentes/administrador/repAportesPatronales",
+  admConDonaciones: "./componentes/administrador/repDonaciones",
+  volverEgresos: "./componentes/administrador/admEgresos",
+  volverAprobarRecibo: "./componentes/administrador/admAportesConsulta",
+  admSettings: "./componentes/administrador/admConfig",
+  admAportes: "./componentes/administrador/admAportes",
+  admConAportes: "./componentes/administrador/admAportesConsulta",
+  admConDonaciones: "./componentes/administrador/repDonaciones",
+  volverAportes: "./componentes/administrador/admAportes",
+  admEgresos: "./componentes/administrador/admEgresos",
+  admGstEgresos: "./componentes/administrador/repEgresoConsulta",
+  admGstUsuarios: "./componentes/administrador/admGstionUsuarios",
+  admSolicitudes: "./componentes/administrador/solicitudes/aprobarSolicitudes",
+  gstModeradores: "./componentes/administrador/admModeradores",
+
+  /* Afiliados */
+  aAportar: "./componentes/afiliados/afiliadosAporte",
+  aPerfil: "./componentes/afiliados/afiliadosPerfil",
+  aMovimientos: "./componentes/afiliados/afiliadosMovs",
+
+  /* Invitado */
+
+  invPerfil: "./componentes/invitados/invitadosPerfil",
+  inAportar: "./componentes/invitados/invitadosAporte",
+  inMovimientos: "./componentes/invitados/invitadosMovs",
+};
+
+
+
+// Función para manejar clic en botones de la barra lateral
+function handleSidebarClick(event) {
+  if (event.target.classList.contains("b-bl")) {
+    activateButton(event.target);
+    localStorage.setItem("currentTab", event.target.id);
+    ajax(componentRoutes[event.target.id]);
+  } else if (componentRoutes[event.target.id]) {
+    localStorage.setItem("currentTab", event.target.id);
+    ajax(componentRoutes[event.target.id]);
+  }
+}
+
+
+// Función para cargar estado inicial desde localStorage
+function loadInitialState() {
+  const activeButtonId = localStorage.getItem("activeButton");
+  const currentTab = localStorage.getItem("currentTab");
+  const currentPath = window.location.href.split("/").pop(); // Obtener el nombre del archivo actual
+
+  // Definir pestañas predeterminadas según la página
+  const defaultTabs = {
+    "Admin.php": "admGeneral",
+    "afiliados.php": "aPerfil",
+    "invitados.php": "invPerfil"
+  };
+
+  const defaultTab = defaultTabs[currentPath];
+
+  if (activeButtonId) {
+    const activeButton = document.getElementById(activeButtonId);
+    if (activeButton) {
+      activeButton.classList.add("activo");
+    }
+  }
+
+  if (currentTab && componentRoutes[currentTab]) {
+    ajax(componentRoutes[currentTab]);
+  } else if (defaultTab && componentRoutes[defaultTab]) {
+    ajax(componentRoutes[defaultTab]);
+    localStorage.setItem("currentTab", defaultTab);
+  }
+}
+
+
+
+// Añadir listeners
+document.body.addEventListener("click", handleSidebarClick);
+document.addEventListener("DOMContentLoaded", loadInitialState);
+
+/*----------------------- AJAX CARGA CON LOCALSTORE --------------------- */
+
+/*----------------------- AJAX CARGA CON LOCALSTORE --------------------- */
+
+
+
+
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "btnFormulario") {
+    event.preventDefault(); // Evita el envío predeterminado del formulario
+    // Llama a una función para manejar el envío del formulario usando AJAX o envío regular
+    handleFormSubmission();
+  }
+});
+
+
+// formatear monto EN LOS FORMULARIOS //
+
+function formatearMonto() {
+  const input = document.getElementById("montoInput");
+  const valor = input.value.replace(/\D/g, "");
+  const montoFormateado = formatearNumero(valor);
+  input.value = montoFormateado || "";
+}
+
+function formatearNumero(numero) {
+  const valorDecimal = parseFloat(numero) / 100;
+  return isNaN(valorDecimal)
+    ? ""
+    : valorDecimal.toLocaleString("es-VE", {
+      style: "currency",
+      currency: "VES",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+}
+
+/// esta funcion si que me dio dolor de cabeza entenderla porque me costo hacer para que redireccione
+// de nuevo en la pagina anterior, me costo entenderle  att: Kevin
+// lo que hace esta funcion es que A la hora de que se le da click al boton de verificar aporte
+// y luego se le de aprobar, cargue la ventana anterior o cualquier ventana que yo ponga en el link
+//voy a dejarlo comentado por si acaso.
+
+/// ADMINISTRAR LA VERIFICACION DE PAGOS EN AMDAPORTES
+
+function verificarAporte(id, tipo, usuario) {
+  let xhr = new XMLHttpRequest();
+  xhr.open(
+    "GET",
+    "./componentes/administrador/reciboDonacion.php?id=" +
+    id +
+    "&tipo=" +
+    tipo +
+    "&usuario=" +
+    usuario,
+    true
+  );
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("af-container").innerHTML = xhr.responseText;
+    }
+  };
+  xhr.send();
+}
+
+function actualizarEstado(accion) {
+  let form = document.getElementById("reciboForm");
+  let formData = new FormData(form);
+  formData.append("accion", accion);
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "./componentes/administrador/actualizarEstado.php", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      alert(xhr.responseText);
+      // Redirigir al contenedor af-container
+      cargarAportesMovs();
+    }
+  };
+  xhr.send(formData);
+}
+
+function cargarAportesMovs() {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "./componentes/administrador/admAportesConsulta.php", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("af-container").innerHTML = xhr.responseText;
+    }
+  };
+  xhr.send();
+}
+
+//FIN //////////////////////////////////////////////////////////////////////////////////////////////////
+
+function ajax2(page, extension = "php") {
+  const http = new XMLHttpRequest();
+  const url = `${page}.${extension}`;
+
+  http.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("gstionBody").innerHTML = this.responseText;
+    }
+  };
+  http.open("get", url);
+  http.send();
+}
+
+
+//-------cerrar sesion COOKIES DE GILBER ---------//
+
+function CloseSesion() {
+  document.cookie =
+    "User_ID =; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/SACIPS";
+  document.cookie =
+    "PHPSESSID =; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+  alert("baybay");
+  window.location.href = "index.html";
+}
+
+//// APROBAR APORTES////
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "admVerification") {
+    //ajax("./componentes/administrador/aprobarRecibo");
+    event.preventDefault();
+  }
+});
+
+//-------/Enviar la cookie/----------//
+let validar_aporte;
+function select_boton(validar_aporte) {
+  document.cookie = "id_aporte_recibo=" + validar_aporte;
+  ajax("./componentes/administrador/aprobarRecibo");
+}
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "regresar") {
+    ajax("./componentes/administrador/aprobarRecibo");
+    event.preventDefault();
+  }
+});
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "aSubmit") {
+    event.preventDefault(); // Evita el envío predeterminado del formulario
+    handleFormSubmission();
+  }
+});
+function validateForm() {
+  const telefonoValue = document.querySelector('input[name="telefono"]').value;
+  const cedulaValue = document.getElementById("cedula").value;
+
+  if (telefonoValue.trim() === "") {
+    alert("Por favor, completa todos los campos antes de continuar.");
+    return false; // No permite enviar el formulario
+  }
+  if (cedulaValue.trim() === "") {
+    alert("Por favor, completa el campo de cédula.");
+    return false; // No permite enviar el formulario
+  }
+
+  return true; // Si todo está bien, permite enviar el formulario
+}
+
+// / -------- VALIDACION PARA ENVIARO EL FORMULARIO DE APORTE EN AFILIADO -------///
+
+function validateForm() {
+  const selectValue = document.getElementById("banco").value;
+  const telefonoValue = document.querySelector('input[name="telefono"]').value;
+  const cedulaValue = document.getElementById("cedula").value;
+  const fileInput = document.getElementById("imagen");
+  const refeValue = document.querySelector('input[name="referencia"]').value;
+  const montoValue = document.querySelector('input[name="monto"]').value;
+
+  if (selectValue === "") {
+    alert("Por favor, selecciona un banco antes de continuar.");
+    return false; // No permite enviar el formulario
+  }
+
+  if (telefonoValue.trim() === "") {
+    alert("Por favor, complete el campo Teléfono.");
+    return false; // No permite enviar el formulario
+  }
+
+  if (cedulaValue.trim() === "") {
+    alert("Por favor, completa el campo Cédula.");
+    return false; // No permite enviar el formulario
+  }
+
+  if (refeValue.trim() === "") {
+    alert("Por favor, complete el campo Referencia.");
+    return false; // No permite enviar el formulario
+  }
+
+  if (montoValue.trim() === "") {
+    alert("Por favor, complete el campo Monto.");
+    return false; // No permite enviar el formulario
+  }
+
+  if (fileInput.files.length === 0) {
+    alert("Por favor, seleccione el capture antes de continuar.");
+    return false; // No permite enviar el formulario
+  }
+
+  return true; // Si todo está bien permite enviar el formulario
+}
+
+function handleFormSubmission() {
+  const submitButton = document.getElementById("aSubmit");
+
+  if (validateForm()) {
+    // Desactiva el botón de envío para evitar clics duplicados
+    submitButton.disabled = true;
+
+    const form = document.getElementById("formularioAfiliados");
+    const formData = new FormData(form);
+
+    fetch("./componentes/afiliados/procesarPago.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Actualiza el contenido en "af-container" con reciboPago.php
+        fetch(
+          "./componentes/afiliados/reciboPago.php?data=" + JSON.stringify(data)
+        )
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById("af-container").innerHTML = html;
+          });
+      })
+      .catch((error) => console.error("Error al procesar el formulario", error))
+      .finally(() => {
+        // Reactiva el botón de envío después de procesar la solicitud
+        submitButton.disabled = false;
+      });
+  }
+}
+
+// INVITADOS ///
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "invSubmit") {
+    event.preventDefault(); // Previene el envío predeterminado del formulario
+
+    // Llama a la función que manejará el envío de la forma de invitados
+    handleInvitadoFormSubmission();
+  }
+});
+
+function handleInvitadoFormSubmission() {
+  const form = document.getElementById("formularioInvitado");
+  const formData = new FormData(form);
+
+  fetch("./componentes/invitados/procesarPagoinv.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Aquí puedes manejar la respuesta que retorna tu PHP
+      if (data) {
+        // Asegúrate de que tu PHP envíe datos de retorno (en caso de éxito)
+        // Actualiza el contenido de "af-container" con recibo
+        // Suponiendo que recibes datos válidos para mostrar el recibo
+        fetch(
+          "./componentes/invitados/reciboPagoinv.php?data=" +
+          JSON.stringify(data)
+        )
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById("af-container").innerHTML = html;
+          });
+      } else {
+        console.error("No se recibió una respuesta válida.");
+      }
+    })
+    .catch((error) => console.error("Error al procesar el formulario:", error));
+}
+
+// FIN ENVIAR FORMULARIO//
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "btnFormulario") {
+    event.preventDefault(); // Prevent default form submission
+
+    // Send form data using AJAX
+    ajax("./componentes/afiliados/procesarPago.php");
+  }
+});
+// APORTAR AFILIADOS//
+
+function mostrarVentana(ventanaId) {
+  // Ocultar todas las ventanas emergentes
+  document.querySelectorAll(".validacion > div").forEach((ventana) => {
+    ventana.style.display = "none";
+    event.preventDefault();
+  });
+
+  // Mostrar la ventana emergente seleccionada
+  document.getElementById(ventanaId).style.display = "block";
+}
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "btnVolverRecibo") {
+    ajax("./componentes/afiliados/afiliadosMovs");
+    event.preventDefault();
+  }
+});
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "btnVolverReciboinv") {
+    ajax("./componentes/invitados/invitadosAporte");
+    event.preventDefault();
+  }
+});
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.id === "btnVolverReciboinvCon") {
+    ajax("./componentes/invitados/invitadosMovs");
+    event.preventDefault();
+  }
+});
+
+///// MANDAR LOS DATOS DE AFILIADOS ////
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.classList.contains("mandarGet")) {
+    let tipo_aporte = event.target.getAttribute("data-tipo_aporte");
+    let tipo_nombre = event.target.getAttribute("data-tipo_nombre");
+    let tipo_apellido = event.target.getAttribute("data-tipo_apellido");
+    let tipo_cedula = event.target.getAttribute("data-tipo_cedula");
+    let tipo_banco = event.target.getAttribute("data-tipo_banco");
+    let tipo_telefono = event.target.getAttribute("data-tipo_telefono");
+    let monto = event.target.getAttribute("data-monto");
+    let fechaAporte = event.target.getAttribute("data-fechaAporte");
+    let referencia = event.target.getAttribute("data-referencia");
+    let concepto = event.target.getAttribute("data-concepto");
+    let estado = event.target.getAttribute("data-estado");
+
+    var xhr = new XMLHttpRequest();
+    xhr.open(
+      "GET",
+      "./componentes/afiliados/reciboPagoMostrar.php?tipo_aporte=" +
+      encodeURIComponent(tipo_aporte) +
+      "&tipo_nombre=" +
+      encodeURIComponent(tipo_nombre) +
+      "&tipo_apellido=" +
+      encodeURIComponent(tipo_apellido) +
+      "&tipo_cedula=" +
+      encodeURIComponent(tipo_cedula) +
+      "&tipo_banco=" +
+      encodeURIComponent(tipo_banco) +
+      "&tipo_telefono=" +
+      encodeURIComponent(tipo_telefono) +
+      "&monto=" +
+      encodeURIComponent(monto) +
+      "&fechaAporte=" +
+      encodeURIComponent(fechaAporte) +
+      "&referencia=" +
+      encodeURIComponent(referencia) +
+      "&concepto=" +
+      encodeURIComponent(concepto) +
+      "&estado=" +
+      encodeURIComponent(estado),
+      true
+    );
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // Actualizar una parte específica de la página con la respuesta del servidor
+        document.getElementById("af-container").innerHTML = xhr.responseText;
+      }
+    };
+    xhr.send();
+    event.preventDefault();
+  }
+});
+
+//----------------//
+//----- mandar get con invitados ------------ //
+
+document.body.addEventListener("click", function (event) {
+  if (event.target.classList.contains("mandarGetinv")) {
+    let tipo_aporte = event.target.getAttribute("data-tipo_aporte");
+    let tipo_nombre = event.target.getAttribute("data-tipo_nombre");
+    let tipo_apellido = event.target.getAttribute("data-tipo_apellido");
+    let tipo_cedula = event.target.getAttribute("data-tipo_cedula");
+    let tipo_banco = event.target.getAttribute("data-tipo_banco");
+    let tipo_telefono = event.target.getAttribute("data-tipo_telefono");
+    let monto = event.target.getAttribute("data-monto");
+    let fechaAporte = event.target.getAttribute("data-fechaAporte");
+    let referencia = event.target.getAttribute("data-referencia");
+    let concepto = event.target.getAttribute("data-concepto");
+    let estado = event.target.getAttribute("data-estado");
+
+    var xhr = new XMLHttpRequest();
+    xhr.open(
+      "GET",
+      "./componentes/invitados/reciboPagoMostrar.php?tipo_aporte=" +
+      encodeURIComponent(tipo_aporte) +
+      "&tipo_nombre=" +
+      encodeURIComponent(tipo_nombre) +
+      "&tipo_apellido=" +
+      encodeURIComponent(tipo_apellido) +
+      "&tipo_cedula=" +
+      encodeURIComponent(tipo_cedula) +
+      "&tipo_banco=" +
+      encodeURIComponent(tipo_banco) +
+      "&tipo_telefono=" +
+      encodeURIComponent(tipo_telefono) +
+      "&monto=" +
+      encodeURIComponent(monto) +
+      "&fechaAporte=" +
+      encodeURIComponent(fechaAporte) +
+      "&referencia=" +
+      encodeURIComponent(referencia) +
+      "&concepto=" +
+      encodeURIComponent(concepto) +
+      "&estado=" +
+      encodeURIComponent(estado),
+      true
+    );
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // Actualizar una parte específica de la página con la respuesta del servidor
+        document.getElementById("af-container").innerHTML = xhr.responseText;
+      }
+    };
+    xhr.send();
+    event.preventDefault();
+  }
+});
+
+//-------------//
+
+// Variables para controlar el zoom y el cursor
+let zoomFactor = 1.0; // Factor de zoom inicial
+let isZoomed = false; // Estado del zoom
+
+function mostrarCapture(id) {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", `./componentes/administrador/getCapture.php?id=${id}`, true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const response = JSON.parse(xhr.responseText);
+      if (response.success) {
+        document.getElementById("captureImage").src =
+          "data:image/png;base64," + response.capture;
+        document.getElementById("modalCapture").style.display = "flex";
+
+        // Limpiar transformaciones anteriores si las hay
+        const imgContainer = document.getElementById("imageContainer");
+        imgContainer.style.transform = "none"; // Reiniciar posición al abrir modal
+        zoomFactor = 1.0; // Reiniciar zoom al abrir modal
+
+        // Agregar evento de click para hacer zoom
+        document
+          .getElementById("captureImage")
+          .addEventListener("click", (event) => {
+            if (!isZoomed) {
+              aplicarZoom(event);
+            } else {
+              resetZoom();
+            }
+          });
+      } else {
+        alert("No se pudo cargar el capture.");
+      }
+    }
+  };
+
+  xhr.send();
+}
+
+function cerrarModal() {
+  document.getElementById("modalCapture").style.display = "none";
+
+  // Quitar el evento de click y reiniciar el estado
+  document.getElementById("captureImage").removeEventListener("click");
+  resetZoom();
+}
+
+function aplicarZoom(event) {
+  const img = document.getElementById("captureImage");
+  zoomFactor = 2.0; // Aumenta el zoom al hacer clic
+  img.style.transition = "transform 0.3s ease"; // Suaviza la transformación
+
+  const imgContainer = document.getElementById("imageContainer");
+  const rect = img.getBoundingClientRect(); // Cambiado para usar la imagen en lugar del contenedor
+  const mouseX = event.clientX - rect.left; // Posición X del cursor relativo a la imagen
+  const mouseY = event.clientY - rect.top; // Posición Y del cursor relativo a la imagen
+
+  // Calcular el desplazamiento para centrar el zoom en el punto donde se hizo clic
+  const offsetX = (mouseX - rect.width / 2) * (zoomFactor - 1);
+  const offsetY = (mouseY - rect.height / 2) * (zoomFactor - 1);
+
+  img.style.transform = `scale(${zoomFactor}) translate(${-offsetX}px, ${-offsetY}px)`; // Cambiado a negativo
+  isZoomed = true;
+}
+
+// Función para restablecer el zoom
+function resetZoom() {
+  const img = document.getElementById("captureImage");
+  img.style.transition = "transform 0.3s ease";
+  zoomFactor = 1.0;
+  img.style.transform = `scale(${zoomFactor})`;
+  isZoomed = false;
+}
+
+// Detectar la tecla ESC para cerrar la ventana modal
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    cerrarModal();
+  }
+});
+
+////
+
+

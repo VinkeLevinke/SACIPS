@@ -1,0 +1,88 @@
+
+.emitir-recibo{
+    padding: 0% 0% 0% 0%;
+    background-color:white;
+    border-radius: 5px;
+    width: 50%;
+    margin-top: 1%;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.emitir-recibo .recibo-container{
+    padding: 1% 2% 0 2%;
+}
+
+
+.buttonsRecibo { 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+}
+  .buttonsRecibo a { 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+  .btn-aprovado { 
+    background-color: #D0CECC; 
+    color: black; 
+}
+  .btn-rechazado { 
+    background-color: #FFC1C2; 
+    color: black; 
+}
+
+.Monto{
+    border-bottom: 3px solid black;
+    font-size: 1.5REM;
+    text-align: center;
+}
+
+.header-name-recibo > p{
+    font-size: 1.5rem;
+    border-bottom: 3px solid black;
+    text-align: center;
+    color: #5884AC;
+}
+
+.emitir-recibo .buttons{
+    display: flex;
+    margin-top: 20%; 
+    justify-content: space-between;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.buttonsRecibo p{
+    color: #5884AC;
+}
+.emitir-recibo .name-ipsp{
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 2%;
+    padding: 2%;
+}
+
+.recibo-container > input{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 60%;
+}
+
+.recibo-container > label{
+    color: #5884AC;
+}
+
+.header-name-rif{
+    justify-content: space-between;
+    display: flex;
+    padding: 1%;
+    margin-bottom: -7%;
+    font-size: 12px;
+}
+.buttonsRecibo a{
+    width: 40%;
+    text-align: center;
+}
